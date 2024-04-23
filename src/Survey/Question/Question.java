@@ -7,6 +7,12 @@ import utils.Out;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/***
+ * Question Class
+ * Abstract class which has the template for all types of questions.
+ * All questions are serializable.
+ * An enumerator QuestionType has a list of all the different types of questions.
+ */
 public abstract class Question implements Serializable {
     /**
      * ID for serialization

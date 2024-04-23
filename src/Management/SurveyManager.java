@@ -14,6 +14,13 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * SurveyManager class is the main driver for the Surveys.
+ * It provides menus for loading, saving, creating, displaying, and modifying different Survey objects.
+ * It has a path to the file storage location.
+ *
+ * SurveyManager is not Serializable
+ */
 public class SurveyManager {
     /**
      * Loaded Survey
@@ -40,7 +47,12 @@ public class SurveyManager {
     }
 
     /**
-     * Display the top level menu
+     * Display the top level menu.
+     * Gets user input and perform logic as appropriate
+     *
+     * Does not explicitly change anything. Passes user input to handleMenuSelection method.
+     * Takes no arguments.
+     * Returns no values.
      */
     public void displayMenu() {
         int selection = 0;
@@ -68,6 +80,7 @@ public class SurveyManager {
 
     /**
      * Takes value associated with top menu selection, and perform associated operation.
+     * Outputs the selection to improve UX.
      *
      * @param selection int relating to menu selection.
      */
@@ -116,6 +129,7 @@ public class SurveyManager {
 
     /**
      * Exits the program.
+     * Calls notSaved() to perform a check if the currently loaded survey is not saved.
      */
     private void quit() {
         Out out = Out.getInstance();
@@ -143,6 +157,11 @@ public class SurveyManager {
 
     /**
      * Modify the loaded survey.
+     * Prompts user for a question number, uses QuestionEditor class to edit the question.
+     *
+     * If no survey is loaded, will output error message.
+     * No special handling for surveys with no questions.
+     * Marks the survey as not saved.
      */
     private void modifySurvey() {
         // setup
@@ -187,7 +206,7 @@ public class SurveyManager {
 
         // if there is a current survey which has not been saved since last changed
         if (!saved) {
-            if (!in.getYesNo("Current survey has not been saved, do you wish to continue?\nCurrent survey will be lost.")) {
+            if (!notSaved()) { // If user wishes to keep current survey, exit the method
                 out.say("Keeping current survey");
                 return;
             }
