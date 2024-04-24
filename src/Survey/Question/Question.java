@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * Abstract class which has the template for all types of questions.
  * All questions are serializable.
  * An enumerator QuestionType has a list of all the different types of questions.
+ * Supports modifying the current question.
  */
 public abstract class Question implements Serializable {
     /**
@@ -83,7 +84,8 @@ public abstract class Question implements Serializable {
     }
 
     /**
-     * call answer's respond method
+     * Method to get user's response to the question.
+     * call answer's respond() method
      */
     protected void getResponse() {
         answer.respond();

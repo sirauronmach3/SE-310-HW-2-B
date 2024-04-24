@@ -5,6 +5,9 @@ import Survey.Response.OpenEndedResponse;
 
 import java.util.ArrayList;
 
+/**
+ * Essay is a type of Question
+ */
 public class Essay extends Question {
     /**
      * ID for serialization
