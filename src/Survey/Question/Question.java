@@ -3,6 +3,7 @@ package Survey.Question;
 import Management.QuestionType;
 import Survey.Response.Response;
 import utils.Out;
+import utils.SerializationIDs;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public abstract class Question implements Serializable {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = 2L;
+    private final static long serialVersionUID = SerializationIDs.QUESTION.id;
 
     /**
      * Response storing the answer
