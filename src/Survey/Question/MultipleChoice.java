@@ -3,6 +3,7 @@ package Survey.Question;
 import Management.QuestionType;
 import Survey.Response.SelectionResponse;
 import utils.Out;
+import utils.SerializationIDs;
 
 import java.util.ArrayList;
 
@@ -10,7 +11,7 @@ public class MultipleChoice extends Question {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = 5L;
+    private final static long serialVersionUID = SerializationIDs.MULTIPLE_CHOICE.id;
     protected ArrayList<String> choices;
 
     public MultipleChoice() {

@@ -2,6 +2,7 @@ package Survey.Question;
 
 import Management.QuestionType;
 import Survey.Response.OpenEndedResponse;
+import utils.SerializationIDs;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ public class Essay extends Question {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = 3L;
+    private final static long serialVersionUID = SerializationIDs.ESSAY.id;
 
     /**
      * Constructor for Essay

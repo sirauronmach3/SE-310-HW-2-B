@@ -3,6 +3,7 @@ package Survey.Question;
 import Management.QuestionType;
 import Survey.Response.PairResponse;
 import utils.Out;
+import utils.SerializationIDs;
 
 import java.util.ArrayList;
 
@@ -10,7 +11,7 @@ public class Matching extends Question {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = 4L;
+    private final static long serialVersionUID = SerializationIDs.MATCHING.id;
     private ArrayList<String> leftColumn = new ArrayList<>();
     private ArrayList<String> rightColumn = new ArrayList<>();
 

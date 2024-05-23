@@ -4,6 +4,7 @@ public enum SerializationIDs {
     SURVEY(1L),
     QUESTION(2L),
     ESSAY(3L),
+    MATCHING(4L),
     MULTIPLE_CHOICE(5L),
     SHORT_ANSWER(6L),
     TRUE_FALSE(7L),

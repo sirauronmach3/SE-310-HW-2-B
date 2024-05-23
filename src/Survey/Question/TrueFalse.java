@@ -1,6 +1,7 @@
 package Survey.Question;
 
 import Management.QuestionType;
+import utils.SerializationIDs;
 
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ public class TrueFalse extends MultipleChoice {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = 7L;
+    private final static long serialVersionUID = SerializationIDs.TRUE_FALSE.id;
 
     /**
      * TrueFalse constructor

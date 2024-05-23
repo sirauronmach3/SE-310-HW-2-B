@@ -2,12 +2,13 @@ package Survey.Question;
 
 import Management.QuestionType;
 import Survey.Response.ShortAnswerResponse;
+import utils.SerializationIDs;
 
 public class ShortAnswer extends Essay {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = 6L;
+    private final static long serialVersionUID = SerializationIDs.SHORT_ANSWER.id;
     private static final int NUMBER_OF_ANSWERS = 1;
 
     public ShortAnswer() {
