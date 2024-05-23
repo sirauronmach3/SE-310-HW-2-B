@@ -2,6 +2,7 @@ package Survey;
 
 import Survey.Question.Question;
 import utils.Out;
+import utils.SerializationIDs;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,7 +14,7 @@ public class Survey implements Serializable {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = 1L;
+    private final static long serialVersionUID = SerializationIDs.SURVEY.id;
     /**
      * ArrayList of the questions
      */
