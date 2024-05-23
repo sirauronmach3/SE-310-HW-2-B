@@ -2,6 +2,7 @@ package Survey.Response;
 
 import utils.In;
 import utils.Out;
+import utils.SerializationIDs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +11,7 @@ public class PairResponse extends Response {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = 13L;
+    private final static long serialVersionUID = SerializationIDs.PAIR_RESPONSE.id;
     /**
      * HashMap containing the String pairs of the answer
      */

@@ -3,12 +3,13 @@ package Survey.Response;
 import utils.DaysInMonth;
 import utils.In;
 import utils.Out;
+import utils.SerializationIDs;
 
 public class DateResponse extends Response {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = 11L;
+    private final static long serialVersionUID = SerializationIDs.DATE_RESPONSE.id;
     /**
      * The answer
      */

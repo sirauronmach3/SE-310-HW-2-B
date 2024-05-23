@@ -1,5 +1,7 @@
 package Survey.Response;
 
+import utils.SerializationIDs;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -11,7 +13,7 @@ public abstract class Response implements Serializable {
     /**
      * ID for serialization.
      */
-    private static final long serialVersionUID = 9L;
+    private static final long serialVersionUID = SerializationIDs.RESPONSE.id;
     /**
      * boolean, if multiple answers are allowed for this question.
      */

@@ -2,6 +2,7 @@ package Survey.Response;
 
 import utils.In;
 import utils.Out;
+import utils.SerializationIDs;
 
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ public class OpenEndedResponse extends Response {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = 12L;
+    private final static long serialVersionUID = SerializationIDs.OPEN_ENDED_RESPONSE.id;
 
     protected ArrayList<String> answer = new ArrayList<>();
 
