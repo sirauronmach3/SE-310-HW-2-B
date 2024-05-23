@@ -2,12 +2,13 @@ package Survey.Response;
 
 import utils.In;
 import utils.Out;
+import utils.SerializationIDs;
 
 public class ShortAnswerResponse extends OpenEndedResponse {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = 15L;
+    private final static long serialVersionUID = SerializationIDs.SHORT_ANSWER_RESPONSE.id; 
 
     @Override
     public void display() {
