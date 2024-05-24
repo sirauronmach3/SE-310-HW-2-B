@@ -11,7 +11,7 @@ public class Matching extends Question {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.MATCHING.id;
+    private final static long serialVersionUID = SerializationIDs.MATCHING.uid;
     private ArrayList<String> leftColumn = new ArrayList<>();
     private ArrayList<String> rightColumn = new ArrayList<>();
 

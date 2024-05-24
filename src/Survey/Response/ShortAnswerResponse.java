@@ -8,7 +8,7 @@ public class ShortAnswerResponse extends OpenEndedResponse {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.SHORT_ANSWER_RESPONSE.id; 
+    private final static long serialVersionUID = SerializationIDs.SHORT_ANSWER_RESPONSE.uid;
 
     @Override
     public void display() {

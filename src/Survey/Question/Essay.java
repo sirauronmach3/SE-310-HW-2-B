@@ -13,7 +13,7 @@ public class Essay extends Question {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.ESSAY.id;
+    private final static long serialVersionUID = SerializationIDs.ESSAY.uid;
 
     /**
      * Constructor for Essay

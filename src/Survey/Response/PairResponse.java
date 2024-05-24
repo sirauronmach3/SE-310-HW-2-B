@@ -11,7 +11,7 @@ public class PairResponse extends Response {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.PAIR_RESPONSE.id;
+    private final static long serialVersionUID = SerializationIDs.PAIR_RESPONSE.uid;
     /**
      * HashMap containing the String pairs of the answer
      */

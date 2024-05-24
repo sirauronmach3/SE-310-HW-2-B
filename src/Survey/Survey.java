@@ -14,7 +14,7 @@ public class Survey implements Serializable {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.SURVEY.id;
+    private final static long serialVersionUID = SerializationIDs.SURVEY.uid;
     /**
      * ArrayList of the questions
      */

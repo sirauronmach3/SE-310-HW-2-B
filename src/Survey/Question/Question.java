@@ -19,7 +19,7 @@ public abstract class Question implements Serializable {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.QUESTION.id;
+    private final static long serialVersionUID = SerializationIDs.QUESTION.uid;
 
     /**
      * Response storing the answer

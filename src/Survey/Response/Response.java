@@ -13,7 +13,7 @@ public abstract class Response implements Serializable {
     /**
      * ID for serialization.
      */
-    private static final long serialVersionUID = SerializationIDs.RESPONSE.id;
+    private static final long serialVersionUID = SerializationIDs.RESPONSE.uid;
     /**
      * boolean, if multiple answers are allowed for this question.
      */

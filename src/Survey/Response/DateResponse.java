@@ -9,7 +9,7 @@ public class DateResponse extends Response {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.DATE_RESPONSE.id;
+    private final static long serialVersionUID = SerializationIDs.DATE_RESPONSE.uid;
     /**
      * The answer
      */

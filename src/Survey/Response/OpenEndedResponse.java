@@ -10,7 +10,7 @@ public class OpenEndedResponse extends Response {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.OPEN_ENDED_RESPONSE.id;
+    private final static long serialVersionUID = SerializationIDs.OPEN_ENDED_RESPONSE.uid;
 
     protected ArrayList<String> answer = new ArrayList<>();
 

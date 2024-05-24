@@ -11,7 +11,7 @@ public class ValidDate extends Question {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.VALID_DATE.id;
+    private final static long serialVersionUID = SerializationIDs.VALID_DATE.uid;
 
     public ValidDate() {
         this.questionType = QuestionType.VALID_DATE;

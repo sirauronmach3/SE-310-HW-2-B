@@ -11,7 +11,7 @@ public class MultipleChoice extends Question {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.MULTIPLE_CHOICE.id;
+    private final static long serialVersionUID = SerializationIDs.MULTIPLE_CHOICE.uid;
     protected ArrayList<String> choices;
 
     public MultipleChoice() {

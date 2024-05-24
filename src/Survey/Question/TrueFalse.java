@@ -10,7 +10,7 @@ public class TrueFalse extends MultipleChoice {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.TRUE_FALSE.id;
+    private final static long serialVersionUID = SerializationIDs.TRUE_FALSE.uid;
 
     /**
      * TrueFalse constructor

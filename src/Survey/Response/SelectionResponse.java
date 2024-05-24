@@ -10,7 +10,7 @@ public class SelectionResponse extends Response {
     /**
      * ID for serialization
      */
-    private final static long serialVersionUID = SerializationIDs.SELECTION_RESPONSE.id;
+    private final static long serialVersionUID = SerializationIDs.SELECTION_RESPONSE.uid;
     /**
      * List of answer(s)
      */
