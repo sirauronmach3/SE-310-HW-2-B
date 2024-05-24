@@ -16,8 +16,8 @@ public enum SerializationIDs {
     SELECTION_RESPONSE(14L),
     SHORT_ANSWER_RESPONSE(15L);
 
-    public final long id;
-    SerializationIDs(long id) {
-        this.id = id;
+    public final long uid;
+    SerializationIDs(long uid) {
+        this.uid = uid;
     }
 }
