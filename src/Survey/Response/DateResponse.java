@@ -14,6 +14,7 @@ public class DateResponse extends Response {
      * The answer
      */
     private String answer;
+    private final String formatPrompt = "A date should be entered in the following format: mm/dd/yyyy";
 
     @Override
     public void respond() {
@@ -25,7 +26,7 @@ public class DateResponse extends Response {
 
         // loop until a valid date is given
         while (!valid) {
-            out.say("A date should be entered in the following format: mm/dd/yyyy");
+            out.say(formatPrompt);
             input = in.readStr();
             valid = validateDate(input);
         }
@@ -69,4 +70,39 @@ public class DateResponse extends Response {
         }
     }
 
+    public int[] getAnswer() {
+        String[] date = answer.split("/");
+        int[] numbered_date = new int[3];
+
+        for (int i = 0; i < 3; i++) {
+            numbered_date[i] = Integer.parseInt(date[i]);
+        }
+
+        return numbered_date;
+    }
+
+    @Override
+    public boolean isEqual(Response other) {
+        if (other.getClass().equals(this.getClass())) {
+            int[] date1 = this.getAnswer();
+            int[] date2 = ((DateResponse) other).getAnswer();
+            for (int i = 0; i < 3; i++) {
+                if(date1[i] != date2[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean setAnswer(String answer) {
+        if (validateDate(answer)) {
+            this.answer = answer;
+            return true;
+        }
+        return false;
+    }
 }
