@@ -80,4 +80,8 @@ public class ShortAnswerResponse extends OpenEndedResponse {
 
         return answer;
     }
+
+    public void setAnswer(ArrayList<String> input) {
+        this.answer = input;
+    }
 }
