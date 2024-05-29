@@ -14,7 +14,7 @@ public class SelectionResponse extends Response {
     /**
      * List of answer(s)
      */
-    private final ArrayList<String> answer = new ArrayList<>();
+    private ArrayList<String> answer = new ArrayList<>();
     /**
      * List of choices for question
      */
@@ -72,4 +72,40 @@ public class SelectionResponse extends Response {
         }
     }
 
+    @Override
+    public boolean isEqual(Response other) {
+        if (this.getClass().equals(other.getClass())){
+            ArrayList<String> thisAnswer = this.getAnswer();
+            ArrayList<String> otherAnswer = ((SelectionResponse) other).getAnswer();
+
+            if (thisAnswer.size() != otherAnswer.size()) {
+                return false; /** If both responses do not have the same number of answers */
+            }
+
+            for (String string : thisAnswer) {
+                if (otherAnswer.contains(string)) {
+                    continue;
+                }
+                else {
+                    return false; /** If this answer contains a string */
+                }
+            }
+
+            return true;
+        }
+        return false; /** If other Response is different type */
+    }
+
+    public ArrayList<String> getAnswer() {
+        ArrayList<String> answer = new ArrayList<>();
+        for (String thisString : this.answer) {
+            answer.add(thisString.toLowerCase());
+        }
+
+        return answer;
+    }
+
+    public void setAnswer(ArrayList<String> input) {
+        this.answer = input;
+    }
 }
