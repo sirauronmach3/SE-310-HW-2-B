@@ -4,6 +4,8 @@ import utils.In;
 import utils.Out;
 import utils.SerializationIDs;
 
+import java.util.ArrayList;
+
 public class ShortAnswerResponse extends OpenEndedResponse {
     /**
      * ID for serialization
@@ -43,5 +45,39 @@ public class ShortAnswerResponse extends OpenEndedResponse {
             another = multipleAnswersAllowed && in.getYesNo("Would you like to provide an additional answer?");
         }
         out.say("");
+    }
+
+
+    @Override
+    public boolean isEqual(Response other) {
+        if (this.getClass().equals(other.getClass())){
+            ArrayList<String> thisAnswer = this.getAnswer();
+            ArrayList<String> otherAnswer = ((ShortAnswerResponse) other).getAnswer();
+            
+            if (thisAnswer.size() != otherAnswer.size()) {
+                return false; /** If both responses do not have the same number of answers */
+            }
+
+            for (String string : thisAnswer) {
+                if (otherAnswer.contains(string)) {
+                    continue;
+                }
+                else {
+                    return false; /** If this answer contains a string */
+                }
+            }
+
+            return true;
+        }
+        return false; /** If other Response is different type */
+    }
+    
+    public ArrayList<String> getAnswer() {
+        ArrayList<String> answer = new ArrayList<>();
+        for (String thisString : this.answer) {
+            answer.add(thisString.toLowerCase());
+        }
+
+        return answer;
     }
 }
