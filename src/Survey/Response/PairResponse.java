@@ -86,4 +86,19 @@ public class PairResponse extends Response {
         this.rightColumn = (ArrayList<String>) rightColumn.clone();
     }
 
+    @Override
+    public boolean isEqual(Response response) {
+        if (!(response instanceof PairResponse)) {
+            return false;
+        }
+        else {
+            HashMap<String, String> pairResponse = ((PairResponse) response).getAnswer();
+            return this.answer.equals(pairResponse);
+        }
+    }
+
+    public HashMap<String, String> getAnswer() {
+        return answer;
+    }
+
 }
