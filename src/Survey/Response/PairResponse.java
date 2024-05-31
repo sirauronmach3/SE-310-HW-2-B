@@ -98,7 +98,7 @@ public class PairResponse extends Response {
     }
 
     public HashMap<String, String> getAnswer() {
-        return answer;
+        return new HashMap<String, String>(answer);
     }
 
 }
