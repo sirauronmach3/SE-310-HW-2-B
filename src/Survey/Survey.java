@@ -18,7 +18,7 @@ public class Survey implements Serializable {
     /**
      * ArrayList of the questions
      */
-    private final ArrayList<Question> questions = new ArrayList<>();
+    protected final ArrayList<Question> questions = new ArrayList<>();
 
     /**
      * Survey constructor.
