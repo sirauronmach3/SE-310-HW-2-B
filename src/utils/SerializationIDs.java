@@ -14,7 +14,8 @@ public enum SerializationIDs {
     OPEN_ENDED_RESPONSE(12L),
     PAIR_RESPONSE(13L),
     SELECTION_RESPONSE(14L),
-    SHORT_ANSWER_RESPONSE(15L);
+    SHORT_ANSWER_RESPONSE(15L),
+    TEST(16L);
 
     public final long uid;
     SerializationIDs(long uid) {
