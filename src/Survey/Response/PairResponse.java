@@ -101,4 +101,8 @@ public class PairResponse extends Response {
         return new HashMap<String, String>(answer);
     }
 
+    public void setAnswer(HashMap<String, String> answer) {
+        this.answer.clear();
+        this.answer.putAll(answer);
+    }
 }
