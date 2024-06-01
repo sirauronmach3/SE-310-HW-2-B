@@ -97,6 +97,10 @@ public class PairResponse extends Response {
         }
     }
 
+    /**
+     * Returns a copy of the answer stored in this Response
+     * @return HashMap<String, String> copy of answer from this Response
+     */
     public HashMap<String, String> getAnswer() {
         return new HashMap<String, String>(answer);
     }
