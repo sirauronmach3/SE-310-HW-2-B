@@ -67,7 +67,7 @@ public class SurveyManager {
             out.say("4: Save the current Survey");
             out.say("5: Take the current Survey");
             out.say("6: Modify the current Survey");
-            out.say("7: Exit Program");
+            out.say("7: Exit Program");// fix to return to previous menu
             try {
                 out.say("Pick a menu option by number: ");
                 selection = In.getInstance().readIntWithinRange(1, 7);
