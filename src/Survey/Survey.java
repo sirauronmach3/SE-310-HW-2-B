@@ -1,6 +1,7 @@
 package Survey;
 
 import Survey.Question.Question;
+import Survey.Response.Response;
 import utils.Out;
 import utils.SerializationIDs;
 
@@ -19,6 +20,8 @@ public class Survey implements Serializable {
      * ArrayList of the questions
      */
     protected final ArrayList<Question> questions = new ArrayList<>();
+
+    protected final ArrayList<Response> responses = new ArrayList<>();
 
     /**
      * Survey constructor.
