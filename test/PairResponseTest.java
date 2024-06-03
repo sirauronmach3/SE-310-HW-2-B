@@ -1,5 +1,8 @@
+import Survey.Response.DateResponse;
 import Survey.Response.PairResponse;
 import static org.junit.jupiter.api.Assertions.*;
+
+import Survey.Response.Response;
 import org.junit.jupiter.api.Test;
 
 
@@ -46,5 +49,13 @@ public class PairResponseTest {
         pair2.setAnswer(response2);
 
         assertFalse(pair1.isEqual(pair2));
+    }
+
+    @Test
+    public void pairResponseIsEqualsFalseIfDifferentType() {
+        Response response2 = new DateResponse();
+        pair1 = new PairResponse();
+
+        assertFalse(pair1.isEqual(response2));
     }
 }
