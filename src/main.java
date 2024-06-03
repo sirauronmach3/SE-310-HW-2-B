@@ -4,14 +4,18 @@
  * Author: Matthew Martin mjm836
  * Date: 4/17/2024
  */
+import Management.MainDriver;
 import Management.SurveyManager;
 
 public class main {
     private static SurveyManager surveyManager;
+    private static MainDriver mainDriver;
 
     public static void main(String[] args) {
         String path = System.getProperty("user.dir");
-        surveyManager = new SurveyManager(path);
-        surveyManager.displayMenu();
+        mainDriver = new MainDriver(path);
+        mainDriver.displayTopLevelMenu();
+//        surveyManager = new SurveyManager(path);
+//        surveyManager.displayMenu();
     }
 }
