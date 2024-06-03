@@ -1,4 +1,4 @@
 package utils;
 
-public class TestManagerMenuOptions {
+public enum TestManagerMenuOptions {
 }
