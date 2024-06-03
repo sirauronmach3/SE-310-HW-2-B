@@ -29,22 +29,25 @@ public class InputHelper {
 
     // If file is null, read from System.in
     public static int readInt(String file) {
-        BufferedReader in = null;
-        String line = "-1";
-        try {
-            if (file == null)
-                in = new BufferedReader(new InputStreamReader(System.in));
-            else
-                in = new BufferedReader(new FileReader(file));
-            line = in.readLine();
-            while (line == null || line.length() == 0 || !isInt(line)) {
-                Out.getInstance().say("Please enter a valid int");
+        while (true) {
+            BufferedReader in = null;
+            String line = "-1";
+            Out out = Out.getInstance();
+            try {
+                if (file == null)
+                    in = new BufferedReader(new InputStreamReader(System.in));
+                else
+                    in = new BufferedReader(new FileReader(file));
                 line = in.readLine();
+                while (line == null || line.length() == 0 || !isInt(line)) {
+                    out.say("Please enter a valid int");
+                    line = in.readLine();
+                }
+            } catch (Exception e) {
+                out.say("Please enter a valid int");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            return Integer.parseInt(line);
         }
-        return Integer.parseInt(line);
     }
 
     // If file is null, read from System.in
