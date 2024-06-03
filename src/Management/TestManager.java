@@ -2,6 +2,7 @@ package Management;
 
 import utils.In;
 import utils.Out;
+import utils.TestManagerMenuOptions;
 
 public class TestManager extends SurveyManager{
     /**
@@ -17,11 +18,15 @@ public class TestManager extends SurveyManager{
         int selection = 0;
         Out out = Out.getInstance();
         In in = In.getInstance();
+        int size = TestManagerMenuOptions.values().length;
+        boolean cont = true;
 
-        while (true) {
+        while (cont) {
             out.say("Test Menu Options:");
             Out.getInstance().say("-------------------------------");
-            for (int i = 0; i < 3; i++) {}
+            for (int i = 0; i < size; i++) {
+                out.say((i + 1) + ": " + TestManagerMenuOptions.values()[i].toString());
+            }
         }
     }
 }
