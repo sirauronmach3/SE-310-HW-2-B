@@ -56,19 +56,20 @@ public class SurveyManager {
      */
     public void displayMenu() {
         int selection = 0;
+        Out out = Out.getInstance();
 
         while (true) {
-            Out.getInstance().say("Survey Menu Options:");
-            Out.getInstance().say("-------------------------------");
-            Out.getInstance().say("1: Create a new Survey");
-            Out.getInstance().say("2: Display Survey");
-            Out.getInstance().say("3: Load an existing Survey");
-            Out.getInstance().say("4: Save the current Survey");
-            Out.getInstance().say("5: Take the current Survey");
-            Out.getInstance().say("6: Modify the current Survey");
-            Out.getInstance().say("7: Exit Program");
+            out.say("Survey Menu Options:");
+            out.say("-------------------------------");
+            out.say("1: Create a new Survey");
+            out.say("2: Display Survey");
+            out.say("3: Load an existing Survey");
+            out.say("4: Save the current Survey");
+            out.say("5: Take the current Survey");
+            out.say("6: Modify the current Survey");
+            out.say("7: Exit Program");
             try {
-                Out.getInstance().say("Pick a menu option by number: ");
+                out.say("Pick a menu option by number: ");
                 selection = In.getInstance().readIntWithinRange(1, 7);
             } catch (Exception e) {
                 selection = 0;
