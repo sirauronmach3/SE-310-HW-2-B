@@ -9,7 +9,7 @@ public class PairResponseTest {
     private PairResponse pair1;
 
     @Test
-    public void PairResponseIsEqualsTrueIfSame() {
+    public void pairResponseIsEqualsTrueIfSame() {
         PairResponse pair2 = new PairResponse();
         pair1 = new PairResponse();
 
@@ -27,7 +27,7 @@ public class PairResponseTest {
     }
 
     @Test
-    public void PairResponseIsEqualsFalseIfDifferent() {
+    public void pairResponseIsEqualsFalseIfDifferent() {
         PairResponse pair2 = new PairResponse();
         pair1 = new PairResponse();
 
