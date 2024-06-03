@@ -29,7 +29,7 @@ public class SurveyManager {
     /**
      * Path to directory storing saved Surveys
      */
-    private final String path;
+    protected final String path;
     /**
      * boolean tracking if the Survey has been saved since its most recent change
      */
@@ -58,7 +58,7 @@ public class SurveyManager {
         int selection = 0;
 
         while (true) {
-            Out.getInstance().say("Menu Options:");
+            Out.getInstance().say("Survey Menu Options:");
             Out.getInstance().say("-------------------------------");
             Out.getInstance().say("1: Create a new Survey");
             Out.getInstance().say("2: Display Survey");
@@ -66,7 +66,7 @@ public class SurveyManager {
             Out.getInstance().say("4: Save the current Survey");
             Out.getInstance().say("5: Take the current Survey");
             Out.getInstance().say("6: Modify the current Survey");
-            Out.getInstance().say("7: Quit");
+            Out.getInstance().say("7: Exit Program");
             try {
                 Out.getInstance().say("Pick a menu option by number: ");
                 selection = In.getInstance().readIntWithinRange(1, 7);
@@ -118,7 +118,7 @@ public class SurveyManager {
                 // modify a survey
                 break;
             case 7:
-                out.say("Selection: Quit");
+                out.say("Selection: Exit");
                 quit();
                 break;
             default:
