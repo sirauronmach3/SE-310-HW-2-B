@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c830a9cf-e076-4048-abd9-1a694f245f61" name="Changes" comment="fixed naming for test methods" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2f95ZQKqIdZgyokkcv7k5A60rCv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.All in mjm836_hw2_b.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Cyril/OneDrive - Drexel University/SE310-3/mjm836_hw2_b",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="JUnit.All in mjm836_hw2_b">
+    <configuration name="All in mjm836_hw2_b" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mjm836_hw2_b" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DateResponseTest.isEqualResponseFalseIfDatesDifferent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mjm836_hw2_b" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DateResponseTest" />
+      <option name="METHOD_NAME" value="isEqualResponseFalseIfDatesDifferent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenEndedResponseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mjm836_hw2_b" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OpenEndedResponseTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenEndedResponseTest.OpenEndedComparisonRespondsTrueAsLongAsAnotherOpenEnded" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mjm836_hw2_b" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OpenEndedResponseTest" />
+      <option name="METHOD_NAME" value="OpenEndedComparisonRespondsTrueAsLongAsAnotherOpenEnded" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenEndedResponseTest.OpenEndedComparisonResponseFalseAsLongAsNotOpenEnded" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mjm836_hw2_b" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OpenEndedResponseTest" />
+      <option name="METHOD_NAME" value="OpenEndedComparisonResponseFalseAsLongAsNotOpenEnded" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in mjm836_hw2_b" />
+        <item itemvalue="JUnit.OpenEndedResponseTest.OpenEndedComparisonResponseFalseAsLongAsNotOpenEnded" />
+        <item itemvalue="JUnit.OpenEndedResponseTest.OpenEndedComparisonRespondsTrueAsLongAsAnotherOpenEnded" />
+        <item itemvalue="JUnit.OpenEndedResponseTest" />
+        <item itemvalue="JUnit.DateResponseTest.isEqualResponseFalseIfDatesDifferent" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c830a9cf-e076-4048-abd9-1a694f245f61" name="Changes" comment="" />
+      <created>1713200507319</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713200507319</updated>
+      <workItem from="1713200508584" duration="2311000" />
+      <workItem from="1713799552119" duration="636000" />
+      <workItem from="1713803609076" duration="6783000" />
+      <workItem from="1714410235360" duration="36000" />
+      <workItem from="1714416640074" duration="207000" />
+      <workItem from="1715459611861" duration="361000" />
+      <workItem from="1715612696583" duration="2251000" />
+      <workItem from="1716321585871" duration="1297000" />
+      <workItem from="1716410729784" duration="4662000" />
+      <workItem from="1717182829268" duration="132000" />
+      <workItem from="1717182972063" duration="1397000" />
+    </task>
+    <task id="LOCAL-00001" summary="Created Project">
+      <option name="closed" value="true" />
+      <created>1713200615654</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713200615654</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Moving along">
+      <option name="closed" value="true" />
+      <created>1713799669652</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713799669652</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added Demonstration Survey to be loaded for testing">
+      <option name="closed" value="true" />
+      <created>1713804125707</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713804125707</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added additional comments for documentation">
+      <option name="closed" value="true" />
+      <created>1713902034069</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713902034069</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added additional comments for documentation">
+      <option name="closed" value="true" />
+      <created>1713985749749</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713985749749</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added git ignore">
+      <option name="closed" value="true" />
+      <created>1714152279934</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714152279934</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added enums to SerializationIDs">
+      <option name="closed" value="true" />
+      <created>1716426164601</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716426164601</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Replaced serialVersionUID with enums from SerializationID">
+      <option name="closed" value="true" />
+      <created>1716426204667</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716426204667</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Replaced serialVersionUID with enums from SerializationID">
+      <option name="closed" value="true" />
+      <created>1716426208296</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716426208296</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Replaced serialVersionUID with enums from SerializationID">
+      <option name="closed" value="true" />
+      <created>1716426339722</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716426339722</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Replaced serialVersionUID with enums from SerializationID">
+      <option name="closed" value="true" />
+      <created>1716426453835</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716426453835</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Replaced serialVersionUID with enums from SerializationID">
+      <option name="closed" value="true" />
+      <created>1716426516051</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716426516051</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Created Enum to store Serialization IDs">
+      <option name="closed" value="true" />
+      <created>1716562718955</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1716562718955</updated>
+    </task>
+    <task id="LOCAL-00014" summary="replaced serialization id with values referencing enumerator">
+      <option name="closed" value="true" />
+      <created>1716562748473</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716562748473</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Created isEquals in Response">
+      <option name="closed" value="true" />
+      <created>1716833395277</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1716833395277</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added tests for isEquals">
+      <option name="closed" value="true" />
+      <created>1716947534084</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1716947534084</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Refactored code and added isEquals to DateResponse">
+      <option name="closed" value="true" />
+      <created>1716947563455</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1716947563455</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Created test file for OpenEndedResponse">
+      <option name="closed" value="true" />
+      <created>1716947577013</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1716947577013</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added junit5 to dependencies to support testing">
+      <option name="closed" value="true" />
+      <created>1716947599717</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1716947599717</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added isEquals method">
+      <option name="closed" value="true" />
+      <created>1716948239349</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1716948239349</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added isEquals method tests">
+      <option name="closed" value="true" />
+      <created>1716948246659</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1716948246659</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added isEquals method">
+      <option name="closed" value="true" />
+      <created>1716949606382</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1716949606382</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Created">
+      <option name="closed" value="true" />
+      <created>1716949710676</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1716949710676</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added setAnswer Method to ShortAnswerResponse">
+      <option name="closed" value="true" />
+      <created>1716979764364</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1716979764364</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added tests for isEquals to ShortAnswerResponseTest">
+      <option name="closed" value="true" />
+      <created>1716979783174</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1716979783174</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Created SelectionResponseTest">
+      <option name="closed" value="true" />
+      <created>1716986932685</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1716986932685</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added isEquals, getAnswer, and setAnswer to SelectionResponse">
+      <option name="closed" value="true" />
+      <created>1717001317128</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1717001317129</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added tests for isEqual in SelectionResponse">
+      <option name="closed" value="true" />
+      <created>1717001333565</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1717001333565</updated>
+    </task>
+    <task id="LOCAL-00029" summary="created PairResponseTest.java">
+      <option name="closed" value="true" />
+      <created>1717183639098</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1717183639098</updated>
+    </task>
+    <task id="LOCAL-00030" summary="added isEquals and getAnswer">
+      <option name="closed" value="true" />
+      <created>1717183658720</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1717183658720</updated>
+    </task>
+    <task id="LOCAL-00031" summary="added setAnswer">
+      <option name="closed" value="true" />
+      <created>1717202217279</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1717202217279</updated>
+    </task>
+    <task id="LOCAL-00032" summary="refactored first isEqual test, added additional test">
+      <option name="closed" value="true" />
+      <created>1717202241059</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1717202241059</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fixed naming for test methods">
+      <option name="closed" value="true" />
+      <created>1717202281662</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1717202281662</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Demonstration Survey to be loaded for testing" />
+    <MESSAGE value="Added additional comments for documentation" />
+    <MESSAGE value="Added git ignore" />
+    <MESSAGE value="Added enums to SerializationIDs" />
+    <MESSAGE value="Replaced serialVersionUID with enums from SerializationID" />
+    <MESSAGE value="Created Enum to store Serialization IDs" />
+    <MESSAGE value="replaced serialization id with values referencing enumerator" />
+    <MESSAGE value="Created isEquals in Response" />
+    <MESSAGE value="added tests for isEquals" />
+    <MESSAGE value="Refactored code and added isEquals to DateResponse" />
+    <MESSAGE value="Created test file for OpenEndedResponse" />
+    <MESSAGE value="Added junit5 to dependencies to support testing" />
+    <MESSAGE value="Added isEquals method tests" />
+    <MESSAGE value="Added isEquals method" />
+    <MESSAGE value="Created" />
+    <MESSAGE value="Added setAnswer Method to ShortAnswerResponse" />
+    <MESSAGE value="Added tests for isEquals to ShortAnswerResponseTest" />
+    <MESSAGE value="Created SelectionResponseTest" />
+    <MESSAGE value="Added isEquals, getAnswer, and setAnswer to SelectionResponse" />
+    <MESSAGE value="Added tests for isEqual in SelectionResponse" />
+    <MESSAGE value="created PairResponseTest.java" />
+    <MESSAGE value="added isEquals and getAnswer" />
+    <MESSAGE value="added setAnswer" />
+    <MESSAGE value="refactored first isEqual test, added additional test" />
+    <MESSAGE value="fixed naming for test methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed naming for test methods" />
+  </component>
+</project>
