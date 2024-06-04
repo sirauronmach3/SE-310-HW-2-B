@@ -57,8 +57,9 @@ public class SurveyManager {
     public void displayMenu() {
         int selection = 0;
         Out out = Out.getInstance();
+        boolean cont = true;
 
-        while (true) {
+        while (cont) {
             out.say("Survey Menu Options:");
             out.say("-------------------------------");
             out.say("1: Create a new Survey");
@@ -67,14 +68,14 @@ public class SurveyManager {
             out.say("4: Save the current Survey");
             out.say("5: Take the current Survey");
             out.say("6: Modify the current Survey");
-            out.say("7: Exit Program");// fix to return to previous menu
+            out.say("7: Return to previous menu");
             try {
                 out.say("Pick a menu option by number: ");
                 selection = In.getInstance().readIntWithinRange(1, 7);
             } catch (Exception e) {
                 selection = 0;
             } finally {
-                handleMenuSelection(selection);
+                cont = handleMenuSelection(selection);
             }
         }
     }
@@ -85,46 +86,45 @@ public class SurveyManager {
      *
      * @param selection int relating to menu selection.
      */
-    private void handleMenuSelection(int selection) {
+    protected boolean handleMenuSelection(int selection) {
         Out out = Out.getInstance();
 
         switch (selection) {
             case 1:
                 out.say("Selection: Create a new Survey");
                 createSurvey();
-                break;
+                return true;
             case 2:
                 out.say("Selection: Display Survey");
                 displaySurvey();
                 // display a survey
-                break;
+                return true;
             case 3:
                 out.say("Selection: Load an existing Survey");
                 loadSurvey();
                 // Load a survey
-                break;
+                return true;
             case 4:
                 out.say("Selection: Save the current Survey");
                 saveSurvey();
                 // save survey
-                break;
+                return true;
             case 5:
                 out.say("Selection: Take the current Survey");
                 takeSurvey();
                 // take a survey
-                break;
+                return true;
             case 6:
                 out.say("Selection: Modify the current Survey");
                 modifySurvey();
                 // modify a survey
-                break;
+                return true;
             case 7:
-                out.say("Selection: Exit");
-                quit();
-                break;
+                out.say("Selection: Return to previous menu");
+                return quit();
             default:
                 out.say("Invalid selection");
-                break;
+                return true;
         }
     }
 
@@ -132,16 +132,16 @@ public class SurveyManager {
      * Exits the program.
      * Calls notSaved() to perform a check if the currently loaded survey is not saved.
      */
-    private void quit() {
+    protected boolean quit() {
         Out out = Out.getInstance();
         if (!saved) {
             if (!notSaved()) {
                 out.say("Keeping current survey");
-                return;
+                return false;
             }
         }
         out.say("Exiting ....");
-        System.exit(0);
+        return true;
     }
 
     /**
