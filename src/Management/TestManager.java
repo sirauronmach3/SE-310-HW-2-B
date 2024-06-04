@@ -34,7 +34,7 @@ public class TestManager extends SurveyManager{
                 out.say("Pick a menu option by number");
                 selection = in.readIntWithinRange(1, size);
             } catch (Exception e) {
-                selection = 0;
+                selection = TestManagerMenuOptions.RETURN.ordinal() + 1;
             } finally {
                 cont = handleMenuSelection(TestManagerMenuOptions.values()[(selection - 1)]);
             }
@@ -46,31 +46,39 @@ public class TestManager extends SurveyManager{
         switch (selection) {
             case CREATE_NEW:
                 out.say("Selection: " + TestManagerMenuOptions.CREATE_NEW.name);
-                createTest();
+//                createTest(); // TODO
                 break;
             case DISPLAY_WITH_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITH_KEY.name);
+//                displayWithKey(); // TODO displayWithKey
                 break;
             case DISPLAY_WITHOUT_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITHOUT_KEY.name);
+//                displayNoKey(); // TODO displayNoKey
                 break;
             case LOAD:
                 out.say("Selection: " + TestManagerMenuOptions.LOAD.name);
+//                load(); // TODO load
                 break;
             case SAVE:
                 out.say("Selection: " + TestManagerMenuOptions.SAVE.name);
+//                save(); // TODO save
                 break;
             case TAKE:
                 out.say("Selection: " + TestManagerMenuOptions.TAKE.name);
+//                take(); // TODO take
                 break;
             case MODIFY:
                 out.say("Selection: " + TestManagerMenuOptions.MODIFY.name);
+//                modify(); // TODO modify
                 break;
             case TABULATE:
                 out.say("Selection: " + TestManagerMenuOptions.TABULATE.name);
+//                tabulate(); // TODO tabulate test
                 break;
             case GRADE:
                 out.say("Selection: " + TestManagerMenuOptions.GRADE.name);
+//                grade(); // TODO grade
                 break;
             case RETURN:
                 out.say("Selection: " + TestManagerMenuOptions.RETURN.name);
