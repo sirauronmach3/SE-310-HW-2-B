@@ -2,10 +2,14 @@ package Management;
 
 import Survey.Question.Question;
 import Survey.QuestionEditor;
+import Survey.Response.*;
 import Survey.Test;
 import utils.In;
 import utils.Out;
 import utils.TestManagerMenuOptions;
+import utils.InputHelper;
+
+import java.util.ArrayList;
 
 public class TestManager extends SurveyManager{
     /**
@@ -125,6 +129,77 @@ public class TestManager extends SurveyManager{
 
     private void addCorrectAnswer(Question newQuestion) {
         Out out = Out.getInstance();
-        out.say("\nEnter correct choice");
+        In in = In.getInstance();
+        int selection = 0;
+        int numberOfCorrectAnswers = newQuestion.getNumberOfAnswers();
+        int numberOfOptions = newQuestion.getChoices().size();
+        Response correctAnswer = getNewResponse(newQuestion);
+
+
+        if (newQuestion.getQuestionType() == QuestionType.SHORT_ANSWER) {
+            ArrayList<String> answers = new ArrayList<String>();
+            for (int i = 0; i < numberOfCorrectAnswers; i++) {
+                out.say("Enter " + ((i > 0) ? "next" : "") + " correct answer");
+                String answer = in.readStr();
+                answers.add(answer);
+            }
+
+            return;
+        } else if (newQuestion.getQuestionType() == QuestionType.ESSAY) {
+            return; // open-ended questions auto-grade to correct
+        } else if (newQuestion.getQuestionType() == QuestionType.VALID_DATE) {
+            while(true){
+                out.say("Enter correct date in the following format: mm/dd/yyyy");
+                String correctDate = in.readStr();
+                if(InputHelper.validateDate(correctDate)) {
+                    ((DateResponse) correctAnswer).setAnswer(correctDate);
+                    return;
+                }
+            }
+        } else {
+            for (int i = 0; i < numberOfCorrectAnswers; i++) {
+                out.say("Enter " + ((i > 0) ? "next" : "") + " correct answer");
+                out.say("Select from the options:");
+
+                for (int j = 0; j < newQuestion.getChoices().size(); j++) {
+                    out.say((i + 1) + ": " + newQuestion.getChoices().get(j));
+                }
+
+                out.say("Pick options by number");
+                selection = in.readIntWithinRange(1, numberOfOptions);
+
+            }
+            return;
+        }
+    }
+
+    private Response getNewResponse(Question newQuestion) {
+        QuestionType type = newQuestion.getQuestionType();
+        Response correctAnswer = null;
+
+        switch (type) {
+            case MULTIPLE_CHOICE:
+                correctAnswer = new SelectionResponse();
+                correctAnswer.updateChoices(newQuestion.getChoices());
+                break;
+            case TRUE_FALSE:
+                correctAnswer = new SelectionResponse(); // I know this is a duplicate, it just seems safer to keep it like this
+                correctAnswer.updateChoices(newQuestion.getChoices());
+                break;
+            case ESSAY:
+                correctAnswer = new OpenEndedResponse();
+                break;
+            case SHORT_ANSWER:
+                correctAnswer = new ShortAnswerResponse();
+                break;
+            case MATCHING:
+                correctAnswer = new PairResponse();
+                correctAnswer.updateChoices(newQuestion.getChoices());
+                break;
+            case VALID_DATE:
+                correctAnswer = new DateResponse();
+                break;
+        }
+        return correctAnswer;
     }
 }
