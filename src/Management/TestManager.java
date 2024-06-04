@@ -46,7 +46,7 @@ public class TestManager extends SurveyManager{
         switch (selection) {
             case CREATE_NEW:
                 out.say("Selection: " + TestManagerMenuOptions.CREATE_NEW.name);
-//                createTest(); // TODO
+                createTest(); // TODO
                 break;
             case DISPLAY_WITH_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITH_KEY.name);
@@ -116,12 +116,15 @@ public class TestManager extends SurveyManager{
             addCorrectAnswer(newQuestion);
             currentSurvey.addQuestion(newQuestion);
 
+
+            out.say("Added a " + newQuestion.getQuestionType().label + " question to the survey.");
             out.say(""); // whitespace
             another = in.getYesNo("Would you like to add another question?");
         }
     }
 
     private void addCorrectAnswer(Question newQuestion) {
-
+        Out out = Out.getInstance();
+        out.say("\nEnter correct choice");
     }
 }
