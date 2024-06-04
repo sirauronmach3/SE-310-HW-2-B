@@ -121,4 +121,8 @@ public abstract class Question implements Serializable {
      * @return ArrayList<String> representing the answer choices.
      */
     public abstract ArrayList<String> getChoices();
+
+    public int getNumberOfAnswers() {
+        return answer.getNumberOfAnswers();
+    }
 }
