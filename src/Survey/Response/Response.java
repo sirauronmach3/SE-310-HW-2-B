@@ -4,6 +4,7 @@ import utils.SerializationIDs;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class Response implements Serializable {
     /**
@@ -94,5 +95,13 @@ public abstract class Response implements Serializable {
 
     public int getNumberOfAnswers() {
         return this.numberOfAllowedAnswers;
+    }
+
+    public void setAnswer(ArrayList<String> answers){
+        throw new UnsupportedOperationException("Invalid Operation");
+    }
+
+    public void setAnswer(HashMap<String, String> answer) {
+        throw new UnsupportedOperationException("Invalid Operation");
     }
 }
