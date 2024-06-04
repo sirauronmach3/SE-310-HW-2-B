@@ -336,6 +336,7 @@ public class SurveyManager {
             }
             currentSurvey.addQuestion(newQuestion);
 
+            out.say("Added a " + newQuestion.getQuestionType().label + " question to the survey.");
             out.say(""); // whitespace
             another = in.getYesNo("Would you like to add another question?");
         }
