@@ -30,7 +30,7 @@ public class MainDriver {
             }
             try {
                 out.say("Pick a menu option by number: ");
-                selection = in.readIntWithinRange(1, (sizeOfOptions - 1));
+                selection = in.readIntWithinRange(1, sizeOfOptions);
             } catch (Exception e) {
                 selection = -1;
             } finally {
@@ -62,7 +62,7 @@ public class MainDriver {
     }
 
     private void quit() {
-        Out.getInstance().say("Exiting");
+        Out.getInstance().say("Exiting ...");
         System.exit(0);
     }
 
