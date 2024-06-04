@@ -1,5 +1,8 @@
 package Management;
 
+import Survey.Question.Question;
+import Survey.QuestionEditor;
+import Survey.Test;
 import utils.In;
 import utils.Out;
 import utils.TestManagerMenuOptions;
@@ -80,6 +83,37 @@ public class TestManager extends SurveyManager{
     }
 
     private void createTest() {
+        Out out = Out.getInstance();
+        if(!saved) {
+            out.say("Keeping current survey");
+            return;
+        }
+        currentSurvey = new Test();
+        out.say("New Test Created");
+        saved = false;
+        
+        addQuestionsToTest();
+    }
+
+    private void addQuestionsToTest() {
+        Out out = Out.getInstance();
+        In in = In.getInstance();
+        boolean another = true;
+
+        while (another) {
+            Question newQuestion = QuestionEditor.createQuestion();
+            if (newQuestion == null) {
+                break;
+            }
+            addCorrectAnswer(newQuestion);
+            currentSurvey.addQuestion(newQuestion);
+
+            out.say(""); // whitespace
+            another = in.getYesNo("Would you like to add another question?");
+        }
+    }
+
+    private void addCorrectAnswer(Question newQuestion) {
 
     }
 }
