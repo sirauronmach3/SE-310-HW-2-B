@@ -91,4 +91,8 @@ public abstract class Response implements Serializable {
     public boolean isEqual(Response other) {
         return false;
     }
+
+    public int getNumberOfAnswers() {
+        return this.numberOfAllowedAnswers;
+    }
 }
