@@ -25,7 +25,7 @@ public class SurveyManager {
     /**
      * Loaded Survey
      */
-    private Survey currentSurvey = null;
+    protected Survey currentSurvey = null;
     /**
      * Path to directory storing saved Surveys
      */
@@ -33,7 +33,7 @@ public class SurveyManager {
     /**
      * boolean tracking if the Survey has been saved since its most recent change
      */
-    private boolean saved = true;
+    protected boolean saved = true;
 
     /**
      * Survey Manager constructor
@@ -152,7 +152,7 @@ public class SurveyManager {
      * <p>true = continue</p>
      * <p>false = stop </p>
      */
-    private boolean notSaved() {
+    protected boolean notSaved() {
         return In.getInstance().getYesNo("Current survey has not been saved, do you wish to continue?\nCurrent survey will be lost.");
     }
 
