@@ -10,6 +10,7 @@ import utils.TestManagerMenuOptions;
 import utils.InputHelper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TestManager extends SurveyManager{
     /**
@@ -128,26 +129,30 @@ public class TestManager extends SurveyManager{
     }
 
     private void addCorrectAnswer(Question newQuestion) {
+        // setup
         Out out = Out.getInstance();
         In in = In.getInstance();
+        QuestionType type = newQuestion.getQuestionType();
         int selection = 0;
         int numberOfCorrectAnswers = newQuestion.getNumberOfAnswers();
         int numberOfOptions = newQuestion.getChoices().size();
+
+        // get response to fill with correct answer
         Response correctAnswer = getNewResponse(newQuestion);
 
 
-        if (newQuestion.getQuestionType() == QuestionType.SHORT_ANSWER) {
+        if (type == QuestionType.SHORT_ANSWER) {
             ArrayList<String> answers = new ArrayList<String>();
             for (int i = 0; i < numberOfCorrectAnswers; i++) {
                 out.say("Enter " + ((i > 0) ? "next" : "") + " correct answer");
                 String answer = in.readStr();
                 answers.add(answer);
             }
-
+            correctAnswer.setAnswer(answers);
             return;
-        } else if (newQuestion.getQuestionType() == QuestionType.ESSAY) {
+        } else if (type == QuestionType.ESSAY) {
             return; // open-ended questions auto-grade to correct
-        } else if (newQuestion.getQuestionType() == QuestionType.VALID_DATE) {
+        } else if (type == QuestionType.VALID_DATE) {
             while(true){
                 out.say("Enter correct date in the following format: mm/dd/yyyy");
                 String correctDate = in.readStr();
@@ -156,7 +161,8 @@ public class TestManager extends SurveyManager{
                     return;
                 }
             }
-        } else {
+        } else if(type == QuestionType.MULTIPLE_CHOICE || type == QuestionType.TRUE_FALSE) {
+            ArrayList<String> answers = new ArrayList<>();
             for (int i = 0; i < numberOfCorrectAnswers; i++) {
                 out.say("Enter " + ((i > 0) ? "next" : "") + " correct answer");
                 out.say("Select from the options:");
@@ -166,10 +172,17 @@ public class TestManager extends SurveyManager{
                 }
 
                 out.say("Pick options by number");
-                selection = in.readIntWithinRange(1, numberOfOptions);
+                selection = (in.readIntWithinRange(1, numberOfOptions) - 1);
 
+                answers.add(newQuestion.getChoices().get(selection));
             }
+            (correctAnswer).setAnswer(answers);
             return;
+        } else if (type == QuestionType.MATCHING) {
+            HashMap<String, String> answers = new HashMap<>();
+//            Arr
+//            for (int i = 0; i < ; i++) {}
+
         }
     }
 
