@@ -137,11 +137,11 @@ public class SurveyManager {
         if (!saved) {
             if (!notSaved()) {
                 out.say("Keeping current survey");
-                return false;
+                return true;
             }
         }
         out.say("Exiting ....");
-        return true;
+        return false;
     }
 
     /**
