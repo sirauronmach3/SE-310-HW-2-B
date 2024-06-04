@@ -44,6 +44,17 @@ public class Matching extends Question {
         throw new UnsupportedOperationException("Invalid operation");
     }
 
+
+    public ArrayList<String> getLeftColumn() {
+        ArrayList<String> leftColumnCopy = new ArrayList<>(leftColumn);
+        return leftColumnCopy;
+    }
+
+    public ArrayList<String> getRightColumn() {
+        ArrayList<String> rightColumnCopy = new ArrayList<>(rightColumn);
+        return rightColumnCopy;
+    }
+
     @Override
     public void ask() {
         displayPrompt();
