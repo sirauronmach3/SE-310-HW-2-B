@@ -101,4 +101,30 @@ public class InputHelper {
             return false;
         } else return !input.endsWith("_") && !input.substring(0, 1).contains("_") && !input.endsWith("-") && !input.substring(0, 1).contains("-");
     }
+
+    public static boolean validateDate(String input) {
+        boolean valid = true;
+        try {
+            String[] date = input.split("/");
+            int[] n = {0, 0, 0};
+            for (int i = 0; i < 3; i++) {
+                n[i] = Integer.parseInt(date[i]);
+            }
+            valid &= intWithinRange(n[0], 1, 12);
+            valid &= intWithinRange(n[2], 0, 2023);
+            if ((n[0] == 2) && (n[2] % 4 == 0)) {
+                valid &= intWithinRange(n[1], 1, 29);
+            } else {
+                valid &= intWithinRange(n[1], 1, DaysInMonth.DAYS_IN_MONTH[n[0]]);
+            }
+        } catch (Exception e) {
+            return false;
+        } finally {
+            return valid;
+        }
+    }
+
+    public static boolean intWithinRange(int value, int lowerBound, int upperBound) {
+        return (value <= upperBound) && (value >= lowerBound);
+    }
 }
