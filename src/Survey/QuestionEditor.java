@@ -63,7 +63,6 @@ public class QuestionEditor {
                 question = null;
         }
 
-
         return question;
     }
 
