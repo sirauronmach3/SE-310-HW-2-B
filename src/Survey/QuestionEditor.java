@@ -62,7 +62,7 @@ public class QuestionEditor {
             default:
                 question = null;
         }
-        Out.getInstance().say("Added a " + type.label + " question to the survey.");
+
 
         return question;
     }
