@@ -87,7 +87,7 @@ public abstract class Response implements Serializable {
      *      <li>False if calling response and other Response are not the same response.</li>
      *      <li>False if calling response and other Response do not have identical (ignoring case) content. </li></ul>
      *      <p></p>
-     *      True if calling response and other response are of the same type of response and have teh same content.
+     *      True if calling response and other response are of the same type of response and have the same content.
      */
     public boolean isEqual(Response other) {
         return false;
