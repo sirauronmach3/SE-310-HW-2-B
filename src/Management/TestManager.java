@@ -170,23 +170,6 @@ public class TestManager extends SurveyManager{
                     return;
                 }
             }
-        } else if(type == QuestionType.MULTIPLE_CHOICE || type == QuestionType.TRUE_FALSE) {
-            ArrayList<String> answers = new ArrayList<>();
-            for (int i = 0; i < numberOfCorrectAnswers; i++) {
-                out.say("Enter " + ((i > 0) ? "next" : "") + " correct answer");
-                out.say("Select from the options:");
-
-                for (int j = 0; j < newQuestion.getChoices().size(); j++) {
-                    out.say((i + 1) + ": " + newQuestion.getChoices().get(j));
-                }
-
-                out.say("Pick options by number");
-                selection = (in.readIntWithinRange(1, numberOfOptions) - 1);
-
-                answers.add(newQuestion.getChoices().get(selection));
-            }
-            (correctAnswer).setAnswer(answers);
-            return;
         } else if (type == QuestionType.MATCHING) {
             HashMap<String, String> answers = new HashMap<>();
 //            Arr
