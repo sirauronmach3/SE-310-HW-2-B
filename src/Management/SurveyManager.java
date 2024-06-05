@@ -188,7 +188,7 @@ public class SurveyManager {
     /**
      * Take the loaded survey.
      */
-    private void takeSurvey() {
+    protected void takeSurvey() {
         if (currentSurvey == null) {
             Out.getInstance().say("You must have a survey loaded in order to take it.");
         } else {
