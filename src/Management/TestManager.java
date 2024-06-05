@@ -1,5 +1,6 @@
 package Management;
 
+import Survey.Question.Matching;
 import Survey.Question.Question;
 import Survey.QuestionEditor;
 import Survey.Response.*;
@@ -130,19 +131,14 @@ public class TestManager extends SurveyManager{
 
     private void addCorrectAnswer(Question newQuestion) {
         // setup
-        Out out = Out.getInstance();
-        In in = In.getInstance();
         QuestionType type = newQuestion.getQuestionType();
-        int selection = 0;
-        int numberOfCorrectAnswers = newQuestion.getNumberOfAnswers();
-        int numberOfOptions = newQuestion.getChoices().size();
 
         // get response to fill with correct answer
         Response correctAnswer = getNewResponse(newQuestion);
 
+        // based on type of question, get correct answer from user
         switch(type) {
-
-            case MULTIPLE_CHOICE:
+            case MULTIPLE_CHOICE: // fall through, multiple choice and true-false use the same response
             case TRUE_FALSE:
                 multipleChoiceAnswer(correctAnswer, newQuestion);
                 break;
@@ -152,30 +148,31 @@ public class TestManager extends SurveyManager{
                 shortAnswer(correctAnswer, newQuestion);
                 break;
             case MATCHING:
+                matchingAnswer(correctAnswer, newQuestion);
                 break;
             case VALID_DATE:
                 validDateAnswer(correctAnswer);
                 break;
         }
+    }
 
+    private void matchingAnswer(Response correctAnswer, Question newQuestion) {
+        // i/o
+        Out out = Out.getInstance();
+        In in = In.getInstance();
 
-        if (type == QuestionType.ESSAY) {
-            return; // open-ended questions auto-grade to correct
-        } else if (type == QuestionType.VALID_DATE) {
-            while(true){
-                out.say("Enter correct date in the following format: mm/dd/yyyy");
-                String correctDate = in.readStr();
-                if(InputHelper.validateDate(correctDate)) {
-                    ((DateResponse) correctAnswer).setAnswer(correctDate);
-                    return;
-                }
-            }
-        } else if (type == QuestionType.MATCHING) {
-            HashMap<String, String> answers = new HashMap<>();
-//            Arr
-//            for (int i = 0; i < ; i++) {}
+        // setup
+        HashMap<String, String> answers = new HashMap<>();
+        ArrayList<String> leftColumn = ((Matching) newQuestion).getLeftColumn();
+        ArrayList<String> rightColumn = ((Matching) newQuestion).getRightColumn();
 
-        }
+        // list options
+        // TODO
+
+        // get pairs
+        // TODO
+
+        correctAnswer.setAnswer(answers);
     }
 
     private void validDateAnswer(Response correctAnswer) {
@@ -183,10 +180,10 @@ public class TestManager extends SurveyManager{
         In in = In.getInstance();
 
         while(true){
-            out.say("Enter correct date in the following format: mm/dd/yyyy");
+            out.say("Enter the correct date in the following format: mm/dd/yyyy");
             String correctDate = in.readStr();
             if(InputHelper.validateDate(correctDate)) { // validate date
-                (correctAnswer).setAnswer(correctDate); // add correct answer
+                correctAnswer.setAnswer(correctDate); // add correct answer
                 return;
             }
         }
@@ -196,7 +193,7 @@ public class TestManager extends SurveyManager{
         Out out = Out.getInstance();
         In in = In.getInstance();
 
-        ArrayList<String> answers = new ArrayList<String>();
+        ArrayList<String> answers = new ArrayList<>();
         int numberOfCorrectAnswers = newQuestion.getNumberOfAnswers();
 
         for (int i = 0; i < numberOfCorrectAnswers; i++) {
@@ -209,6 +206,28 @@ public class TestManager extends SurveyManager{
     }
 
     private void multipleChoiceAnswer(Response correctAnswer, Question newQuestion) {
+        Out out = Out.getInstance();
+        In in = In.getInstance();
+
+        ArrayList<String> answers = new ArrayList<>();
+        int numberOfCorrectAnswers = newQuestion.getNumberOfAnswers();
+        int numberOfOptions = newQuestion.getChoices().size();
+        int selection = 0;
+
+        for (int i = 0; i < numberOfCorrectAnswers; i++) {
+            out.say("Enter " + ((i > 0) ? "next" : "") + " correct answer");
+            out.say("Select from the options:");
+
+            for (int j = 0; j < newQuestion.getChoices().size(); j++) {
+                out.say((i + 1) + ": " + newQuestion.getChoices().get(j));
+            }
+
+            out.say("Pick options by number");
+            selection = (in.readIntWithinRange(1, numberOfOptions) - 1);
+
+            answers.add(newQuestion.getChoices().get(selection));
+        }
+        correctAnswer.setAnswer(answers);
     }
 
     private Response getNewResponse(Question newQuestion) {
@@ -217,11 +236,8 @@ public class TestManager extends SurveyManager{
 
         switch (type) {
             case MULTIPLE_CHOICE:
-                correctAnswer = new SelectionResponse();
-                correctAnswer.updateChoices(newQuestion.getChoices());
-                break;
             case TRUE_FALSE:
-                correctAnswer = new SelectionResponse(); // I know this is a duplicate, it just seems safer to keep it like this
+                correctAnswer = new SelectionResponse();
                 correctAnswer.updateChoices(newQuestion.getChoices());
                 break;
             case ESSAY:
