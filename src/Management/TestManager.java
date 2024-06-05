@@ -140,17 +140,26 @@ public class TestManager extends SurveyManager{
         // get response to fill with correct answer
         Response correctAnswer = getNewResponse(newQuestion);
 
+        switch(type) {
 
-        if (type == QuestionType.SHORT_ANSWER) {
-            ArrayList<String> answers = new ArrayList<String>();
-            for (int i = 0; i < numberOfCorrectAnswers; i++) {
-                out.say("Enter " + ((i > 0) ? "next" : "") + " correct answer");
-                String answer = in.readStr();
-                answers.add(answer);
-            }
-            correctAnswer.setAnswer(answers);
-            return;
-        } else if (type == QuestionType.ESSAY) {
+            case MULTIPLE_CHOICE:
+            case TRUE_FALSE:
+                multipleChoiceAnswer(correctAnswer, newQuestion);
+                break;
+            case ESSAY:
+                break; // open-ended questions auto-grade to correct
+            case SHORT_ANSWER:
+                shortAnswer(correctAnswer, newQuestion);
+                break;
+            case MATCHING:
+                break;
+            case VALID_DATE:
+                validDateAnswer(correctAnswer);
+                break;
+        }
+
+
+        if (type == QuestionType.ESSAY) {
             return; // open-ended questions auto-grade to correct
         } else if (type == QuestionType.VALID_DATE) {
             while(true){
@@ -184,6 +193,39 @@ public class TestManager extends SurveyManager{
 //            for (int i = 0; i < ; i++) {}
 
         }
+    }
+
+    private void validDateAnswer(Response correctAnswer) {
+        Out out = Out.getInstance();
+        In in = In.getInstance();
+
+        while(true){
+            out.say("Enter correct date in the following format: mm/dd/yyyy");
+            String correctDate = in.readStr();
+            if(InputHelper.validateDate(correctDate)) { // validate date
+                (correctAnswer).setAnswer(correctDate); // add correct answer
+                return;
+            }
+        }
+    }
+
+    private void shortAnswer(Response correctAnswer, Question newQuestion) {
+        Out out = Out.getInstance();
+        In in = In.getInstance();
+
+        ArrayList<String> answers = new ArrayList<String>();
+        int numberOfCorrectAnswers = newQuestion.getNumberOfAnswers();
+
+        for (int i = 0; i < numberOfCorrectAnswers; i++) {
+            out.say("Enter " + ((i > 0) ? "next" : "") + " correct answer");
+            String answer = in.readStr();
+            answers.add(answer);
+        }
+
+        correctAnswer.setAnswer(answers);
+    }
+
+    private void multipleChoiceAnswer(Response correctAnswer, Question newQuestion) {
     }
 
     private Response getNewResponse(Question newQuestion) {
