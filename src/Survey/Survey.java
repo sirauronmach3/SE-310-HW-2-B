@@ -102,10 +102,17 @@ public class Survey implements Serializable {
         return questions.get(questionOrdinal);
     }
 
+    /**
+     * Add the given response to the list of correct answers
+     * @param correctAnswer Response that stores the correct answer to a question
+     */
     public void addCorrectAnswer(Response correctAnswer) {
         throw new UnsupportedOperationException("Invalid Operation");
     }
 
+    /**
+     * Display the test with the correct answers
+     */
     public void displayWithKey() {
         throw new UnsupportedOperationException("Invalid Operation");
     }
