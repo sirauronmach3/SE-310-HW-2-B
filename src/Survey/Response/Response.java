@@ -104,4 +104,8 @@ public abstract class Response implements Serializable {
     public void setAnswer(HashMap<String, String> answer) {
         throw new UnsupportedOperationException("Invalid Operation");
     }
+
+    public boolean setAnswer(String string) {
+        throw new UnsupportedOperationException("Invalid Operation");
+    }
 }
