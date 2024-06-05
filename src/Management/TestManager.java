@@ -166,11 +166,28 @@ public class TestManager extends SurveyManager{
         ArrayList<String> leftColumn = ((Matching) newQuestion).getLeftColumn();
         ArrayList<String> rightColumn = ((Matching) newQuestion).getRightColumn();
 
-        // list options
-        // TODO
+        int size, left, right;
 
-        // get pairs
-        // TODO
+        // getting answers
+        out.say("Enter the correct answer ...");
+        while((size = leftColumn.size()) > 0) {
+            out.say("Remaining options:");
+            for (int j = 0; j < size; j++) {
+                int number = j + 1;
+                out.say(number + ") " + leftColumn.get(j) + "\t\t" + number + ") " + rightColumn.get(j));
+            }
+
+            // get options
+            out.say("\nEnter number for left column of the pair:");
+            left = in.readIntWithinRange(1, size);
+            left--;
+            out.say("Enter number for right column of the pair");
+            right = in.readIntWithinRange(1, size);
+            right--;
+
+            // pop answers out of columns and into answer map
+            answers.put(leftColumn.remove(left), rightColumn.remove(right));
+        }
 
         correctAnswer.setAnswer(answers);
     }
