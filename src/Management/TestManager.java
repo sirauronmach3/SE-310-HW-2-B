@@ -56,7 +56,7 @@ public class TestManager extends SurveyManager{
                 break;
             case DISPLAY_WITH_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITH_KEY.name);
-                displayWithKey(); // TODO displayWithKey
+                displayWithKey(); // TODO test displayWithKey
                 break;
             case DISPLAY_WITHOUT_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITHOUT_KEY.name);
