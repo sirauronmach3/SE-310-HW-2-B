@@ -200,7 +200,7 @@ public class SurveyManager {
     /**
      * Lists saved surveys, selects survey, and loads it from path.
      */
-    private void loadSurvey() {
+    protected void loadSurvey() {
         // setup
         Out out = Out.getInstance();
         In in = In.getInstance();
