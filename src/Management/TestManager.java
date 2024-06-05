@@ -56,7 +56,7 @@ public class TestManager extends SurveyManager{
                 break;
             case DISPLAY_WITH_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITH_KEY.name);
-//                displayWithKey(); // TODO displayWithKey
+                displayWithKey(); // TODO displayWithKey
                 break;
             case DISPLAY_WITHOUT_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITHOUT_KEY.name);
@@ -94,6 +94,14 @@ public class TestManager extends SurveyManager{
                 break;
         }
         return true;
+    }
+
+    private void displayWithKey() {
+        if (currentSurvey == null) {
+            Out.getInstance().say("You must have a test loaded in order to display it.");
+        } else {
+            currentSurvey.displayWithKey();
+        }
     }
 
     private void displayNoKey() {

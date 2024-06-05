@@ -104,6 +104,10 @@ public class Survey implements Serializable {
         throw new UnsupportedOperationException("Invalid Operation");
     }
 
+    public void displayWithKey() {
+        throw new UnsupportedOperationException("Invalid Operation");
+    }
+
     /***********************************************Serialization****************************************************/
 
     /**
@@ -117,6 +121,7 @@ public class Survey implements Serializable {
             e.printStackTrace();
         }
     }
+
 
 
 }

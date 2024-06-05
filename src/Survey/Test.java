@@ -21,4 +21,9 @@ public class Test extends Survey{
     public void addCorrectAnswer(Response correctAnswer) {
         this.correctAnswers.add(correctAnswer);
     }
+
+    @Override
+    public void displayWithKey() {
+
+    }
 }
