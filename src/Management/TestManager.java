@@ -52,7 +52,7 @@ public class TestManager extends SurveyManager{
         switch (selection) {
             case CREATE_NEW:
                 out.say("Selection: " + TestManagerMenuOptions.CREATE_NEW.name);
-                createTest(); // TODO
+                createTest();
                 break;
             case DISPLAY_WITH_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITH_KEY.name);
@@ -60,7 +60,7 @@ public class TestManager extends SurveyManager{
                 break;
             case DISPLAY_WITHOUT_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITHOUT_KEY.name);
-//                displayNoKey(); // TODO displayNoKey
+                displayNoKey(); // TODO displayNoKey
                 break;
             case LOAD:
                 out.say("Selection: " + TestManagerMenuOptions.LOAD.name);
@@ -94,6 +94,10 @@ public class TestManager extends SurveyManager{
                 break;
         }
         return true;
+    }
+
+    private void displayNoKey() {
+
     }
 
     private void createTest() {
@@ -154,6 +158,8 @@ public class TestManager extends SurveyManager{
                 validDateAnswer(correctAnswer);
                 break;
         }
+
+        currentSurvey.addCorrectAnswer(correctAnswer);
     }
 
     private void matchingAnswer(Response correctAnswer, Question newQuestion) {
