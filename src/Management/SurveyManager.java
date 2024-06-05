@@ -6,6 +6,7 @@ import Survey.Survey;
 import utils.ComType;
 import utils.In;
 import utils.Out;
+import utils.TypesOfSurvey;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -106,7 +107,7 @@ public class SurveyManager {
                 return true;
             case 4:
                 out.say("Selection: Save the current Survey");
-                saveSurvey();
+                saveSurvey(TypesOfSurvey.SURVEY);
                 // save survey
                 return true;
             case 5:
@@ -278,11 +279,11 @@ public class SurveyManager {
     /**
      * Save the currently loaded survey.
      */
-    protected void saveSurvey() {
+    protected void saveSurvey(TypesOfSurvey type) {
         Out out = Out.getInstance();
         In in = In.getInstance();
         if (this.currentSurvey == null) { // verification
-            out.say("You must have a " + currentSurvey.getSurveyType().name + " loaded in order to save it.");
+            out.say("You must have a " + type.name + " loaded in order to save it.");
         } else {
             out.say("What would you like to name this " + currentSurvey.getSurveyType().name + "?");
             String filename = in.readFilename() + ".ser";
