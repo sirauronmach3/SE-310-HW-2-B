@@ -97,7 +97,7 @@ public class TestManager extends SurveyManager{
     }
 
     private void displayNoKey() {
-
+        currentSurvey.display();
     }
 
     private void createTest() {
