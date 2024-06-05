@@ -117,6 +117,10 @@ public class Survey implements Serializable {
         throw new UnsupportedOperationException("Invalid Operation");
     }
 
+    public TypesOfSurvey getSurveyType() {
+        return surveyType;
+    }
+
     /***********************************************Serialization****************************************************/
 
     /**
