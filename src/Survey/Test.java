@@ -7,6 +7,9 @@ import utils.Out;
 import utils.SerializationIDs;
 import utils.TypesOfSurvey;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Test extends Survey{
@@ -54,6 +57,20 @@ public class Test extends Survey{
                 answer.display();
             }
 
+        }
+    }
+
+    /***********************************************Serialization****************************************************/
+
+    /**
+     * Saves the Survey.
+     */
+    public void save(String path, String filename) {
+        try (ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(filename))) {
+            objectOut.writeObject(this);
+            System.out.println("Test has been serialized and saved.");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
