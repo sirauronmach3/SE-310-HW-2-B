@@ -278,13 +278,13 @@ public class SurveyManager {
     /**
      * Save the currently loaded survey.
      */
-    private void saveSurvey() {
+    protected void saveSurvey() {
         Out out = Out.getInstance();
         In in = In.getInstance();
         if (this.currentSurvey == null) { // verification
-            out.say("You must have a survey loaded in order to save it.");
+            out.say("You must have a " + currentSurvey.getSurveyType().name + " loaded in order to save it.");
         } else {
-            out.say("What would you like to name this survey?");
+            out.say("What would you like to name this " + currentSurvey.getSurveyType().name + "?");
             String filename = in.readFilename() + ".ser";
             this.currentSurvey.save(this.path, filename);
 
