@@ -12,4 +12,13 @@ public class Test extends Survey{
      */
     private final static long serialVersionUID = SerializationIDs.TEST.uid;
     private final ArrayList<Response> correctAnswers = new ArrayList<>();
+
+    public Test() {
+        super();
+    }
+
+    @Override
+    public void addCorrectAnswer(Response correctAnswer) {
+        this.correctAnswers.add(correctAnswer);
+    }
 }

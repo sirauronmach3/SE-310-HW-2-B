@@ -1,6 +1,7 @@
 package Survey;
 
 import Survey.Question.Question;
+import Survey.Response.Response;
 import utils.Out;
 import utils.SerializationIDs;
 
@@ -99,7 +100,11 @@ public class Survey implements Serializable {
         return questions.get(questionOrdinal);
     }
 
-    /*************************************************Serialization****************************************************/
+    public void addCorrectAnswer(Response correctAnswer) {
+        throw new UnsupportedOperationException("Invalid Operation");
+    }
+
+    /***********************************************Serialization****************************************************/
 
     /**
      * Saves the Survey.
@@ -112,4 +117,6 @@ public class Survey implements Serializable {
             e.printStackTrace();
         }
     }
+
+
 }
