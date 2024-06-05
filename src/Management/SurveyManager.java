@@ -141,7 +141,7 @@ public class SurveyManager {
                 return true;
             }
         }
-        out.say("Exiting ....");
+        out.say("Quitting ....");
         return false;
     }
 
