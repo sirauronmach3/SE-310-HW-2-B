@@ -74,7 +74,7 @@ public class Test extends Survey{
     public void save(String path, String filename) {
         try (ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(filename))) {
             objectOut.writeObject(this);
-            System.out.println("Test has been serialized and saved.");
+            System.out.println(this.getSurveyType().name + " has been serialized and saved.");
         } catch (IOException e) {
             e.printStackTrace();
         }
