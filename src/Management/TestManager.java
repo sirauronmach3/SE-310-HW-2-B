@@ -60,7 +60,7 @@ public class TestManager extends SurveyManager{
                 break;
             case DISPLAY_WITHOUT_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITHOUT_KEY.name);
-                displayNoKey(); // TODO displayNoKey
+                displayNoKey();
                 break;
             case LOAD:
                 out.say("Selection: " + TestManagerMenuOptions.LOAD.name);
@@ -243,7 +243,7 @@ public class TestManager extends SurveyManager{
         ArrayList<String> answers = new ArrayList<>();
         int numberOfCorrectAnswers = newQuestion.getNumberOfAnswers();
         int numberOfOptions = newQuestion.getChoices().size();
-        int selection = 0;
+        int selection;
 
         for (int i = 0; i < numberOfCorrectAnswers; i++) {
             out.say("Enter " + ((i > 0) ? "next" : "") + " correct answer");
