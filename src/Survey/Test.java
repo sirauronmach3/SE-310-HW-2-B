@@ -5,6 +5,7 @@ import Survey.Question.Question;
 import Survey.Response.Response;
 import utils.Out;
 import utils.SerializationIDs;
+import utils.TypesOfSurvey;
 
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ public class Test extends Survey{
     private final ArrayList<Response> correctAnswers = new ArrayList<>();
 
     public Test() {
-        super();
+        this.surveyType = TypesOfSurvey.TEST;
     }
 
     @Override

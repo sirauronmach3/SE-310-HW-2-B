@@ -4,6 +4,7 @@ import Survey.Question.Question;
 import Survey.Response.Response;
 import utils.Out;
 import utils.SerializationIDs;
+import utils.TypesOfSurvey;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,12 +21,13 @@ public class Survey implements Serializable {
      * ArrayList of the questions
      */
     protected final ArrayList<Question> questions = new ArrayList<>();
+    protected TypesOfSurvey surveyType;
 
     /**
      * Survey constructor.
      */
     public Survey() {
-
+        this.surveyType = TypesOfSurvey.SURVEY;
     }
 
     /**
@@ -36,7 +38,7 @@ public class Survey implements Serializable {
         Out out = Out.getInstance();
 
         // output header
-        out.say("The Survey");
+        out.say("The " + this.surveyType.name);
         out.say("---------------------------");
 
         // output the questions
@@ -67,7 +69,7 @@ public class Survey implements Serializable {
         int questionNumber = 1;
 
         // output header
-        out.say("The Survey");
+        out.say("The " + this.surveyType.name);
         out.say("---------------------------");
 
         // display question
@@ -116,7 +118,7 @@ public class Survey implements Serializable {
     public void save(String path, String filename) {
         try (ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(filename))) {
             objectOut.writeObject(this);
-            System.out.println("Survey has been serialized and saved.");
+            System.out.println(this.surveyType.name + " has been serialized and saved.");
         } catch (IOException e) {
             e.printStackTrace();
         }
