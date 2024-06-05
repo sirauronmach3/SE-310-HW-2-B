@@ -17,8 +17,14 @@ public class Test extends Survey{
      * ID for serialization
      */
     private final static long serialVersionUID = SerializationIDs.TEST.uid;
+    /**
+     * ArrayList of the correct answers
+     */
     private final ArrayList<Response> correctAnswers = new ArrayList<>();
 
+    /**
+     * Test constructor
+     */
     public Test() {
         this.surveyType = TypesOfSurvey.TEST;
     }
