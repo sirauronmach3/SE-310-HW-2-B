@@ -97,11 +97,13 @@ public class TestManager extends SurveyManager{
     }
 
     private void displayWithKey() {
+        Out out = Out.getInstance();
         if (currentSurvey == null) {
-            Out.getInstance().say("You must have a test loaded in order to display it.");
+            out.say("You must have a test loaded in order to display it.");
         } else {
             currentSurvey.displayWithKey();
         }
+        out.say("\n\n"); // whitespace
     }
 
     private void displayNoKey() {
@@ -111,8 +113,10 @@ public class TestManager extends SurveyManager{
     private void createTest() {
         Out out = Out.getInstance();
         if(!saved) {
-            out.say("Keeping current survey");
-            return;
+            if (!notSaved()) {
+                out.say("Keeping current survey");
+                return;
+            }
         }
         currentSurvey = new Test();
         out.say("New Test Created");
@@ -250,7 +254,7 @@ public class TestManager extends SurveyManager{
             out.say("Select from the options:");
 
             for (int j = 0; j < newQuestion.getChoices().size(); j++) {
-                out.say((i + 1) + ": " + newQuestion.getChoices().get(j));
+                out.say((j + 1) + ": " + newQuestion.getChoices().get(j));
             }
 
             out.say("Pick options by number");
