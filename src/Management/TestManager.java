@@ -69,11 +69,11 @@ public class TestManager extends SurveyManager{
                 break;
             case LOAD:
                 out.say("Selection: " + TestManagerMenuOptions.LOAD.name);
-//                load(); // TODO load
+                loadSurvey(); // TODO load
                 break;
             case SAVE:
                 out.say("Selection: " + TestManagerMenuOptions.SAVE.name);
-                saveSurvey(); // TODO save
+                saveSurvey(); // TODO test save
                 break;
             case TAKE:
                 out.say("Selection: " + TestManagerMenuOptions.TAKE.name);
