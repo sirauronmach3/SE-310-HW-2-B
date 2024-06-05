@@ -47,6 +47,11 @@ public class TestManager extends SurveyManager{
         }
     }
 
+    /**
+     * Handle the user selection from the top level menu for Test
+     * @param selection TestMangerMenuOptions enum representing the user's selection
+     * @return boolean for whether to continue at the top menu or move back to the main driver.
+     */
     protected boolean handleMenuSelection(TestManagerMenuOptions selection) {
         Out out = Out.getInstance();
         switch (selection) {
@@ -96,6 +101,9 @@ public class TestManager extends SurveyManager{
         return true;
     }
 
+    /**
+     * Displays the stored test with the answer key along with it
+     */
     private void displayWithKey() {
         Out out = Out.getInstance();
         if (currentSurvey == null) {
@@ -106,6 +114,9 @@ public class TestManager extends SurveyManager{
         out.say("\n\n"); // whitespace
     }
 
+    /**
+     * Displays the stored test
+     */
     private void displayNoKey() {
         Out out = Out.getInstance();
         if (currentSurvey == null) {
@@ -116,6 +127,9 @@ public class TestManager extends SurveyManager{
         out.say("\n\n"); // whitespace
     }
 
+    /**
+     * Creates a test
+     */
     private void createTest() {
         Out out = Out.getInstance();
         if(!saved) {
@@ -131,6 +145,10 @@ public class TestManager extends SurveyManager{
         addQuestionsToTest();
     }
 
+    /**
+     * Starts a loop of adding questions to the Test. Handles prompts, options, and correct answer for each question
+     * added.
+     */
     private void addQuestionsToTest() {
         Out out = Out.getInstance();
         In in = In.getInstance();
@@ -151,6 +169,10 @@ public class TestManager extends SurveyManager{
         }
     }
 
+    /**
+     * Handles a new question to then create a correct answer to be stored in the test.
+     * @param newQuestion the new question that does not yet have a correct answer.
+     */
     private void addCorrectAnswer(Question newQuestion) {
         // setup
         QuestionType type = newQuestion.getQuestionType();
@@ -180,6 +202,11 @@ public class TestManager extends SurveyManager{
         currentSurvey.addCorrectAnswer(correctAnswer);
     }
 
+    /**
+     * Populates the correct answer for a matching question
+     * @param correctAnswer Response to be populated
+     * @param newQuestion Question that is to have the correct answer created for it
+     */
     private void matchingAnswer(Response correctAnswer, Question newQuestion) {
         // i/o
         Out out = Out.getInstance();
@@ -216,6 +243,10 @@ public class TestManager extends SurveyManager{
         correctAnswer.setAnswer(answers);
     }
 
+    /**
+     * Populates the correct answer for a Valid Date question
+     * @param correctAnswer Response to be populated
+     */
     private void validDateAnswer(Response correctAnswer) {
         Out out = Out.getInstance();
         In in = In.getInstance();
@@ -229,7 +260,11 @@ public class TestManager extends SurveyManager{
             }
         }
     }
-
+    /**
+     * Populates the correct answer for a short answer question
+     * @param correctAnswer Response to be populated
+     * @param newQuestion Question that is to have the correct answer created for it
+     */
     private void shortAnswer(Response correctAnswer, Question newQuestion) {
         Out out = Out.getInstance();
         In in = In.getInstance();
@@ -246,6 +281,11 @@ public class TestManager extends SurveyManager{
         correctAnswer.setAnswer(answers);
     }
 
+    /**
+     * Populates the correct answer for a true/false or multiple choice question
+     * @param correctAnswer Response to be populated
+     * @param newQuestion Question that is to have the correct answer created for it
+     */
     private void multipleChoiceAnswer(Response correctAnswer, Question newQuestion) {
         Out out = Out.getInstance();
         In in = In.getInstance();
@@ -271,6 +311,11 @@ public class TestManager extends SurveyManager{
         correctAnswer.setAnswer(answers);
     }
 
+    /**
+     * Creates and returns a Response to store correct answer for the given Question
+     * @param newQuestion Question to have a correct answer assigned to it.
+     * @return Response that still needs to have correct answer put into it
+     */
     private Response getNewResponse(Question newQuestion) {
         QuestionType type = newQuestion.getQuestionType();
         Response correctAnswer = null;
