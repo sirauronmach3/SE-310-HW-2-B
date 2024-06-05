@@ -5,10 +5,7 @@ import Survey.Question.Question;
 import Survey.QuestionEditor;
 import Survey.Response.*;
 import Survey.Test;
-import utils.In;
-import utils.Out;
-import utils.TestManagerMenuOptions;
-import utils.InputHelper;
+import utils.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,7 +54,7 @@ public class TestManager extends SurveyManager{
         switch (selection) {
             case CREATE_NEW:
                 out.say("Selection: " + TestManagerMenuOptions.CREATE_NEW.name);
-                createTest();
+                createTest(); // TODO creating matching questions is not working right now, fix
                 break;
             case DISPLAY_WITH_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITH_KEY.name);
@@ -73,7 +70,7 @@ public class TestManager extends SurveyManager{
                 break;
             case SAVE:
                 out.say("Selection: " + TestManagerMenuOptions.SAVE.name);
-                saveSurvey(); // TODO test save
+                saveSurvey(TypesOfSurvey.TEST); // TODO test save
                 break;
             case TAKE:
                 out.say("Selection: " + TestManagerMenuOptions.TAKE.name);
