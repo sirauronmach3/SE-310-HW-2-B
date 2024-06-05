@@ -107,7 +107,13 @@ public class TestManager extends SurveyManager{
     }
 
     private void displayNoKey() {
-        currentSurvey.display();
+        Out out = Out.getInstance();
+        if (currentSurvey == null) {
+            out.say("You must have a test loaded in order to display it.");
+        } else {
+            currentSurvey.display();
+        }
+        out.say("\n\n"); // whitespace
     }
 
     private void createTest() {
