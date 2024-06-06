@@ -22,6 +22,7 @@ public class Survey implements Serializable {
      */
     protected final ArrayList<Question> questions = new ArrayList<>();
     protected TypesOfSurvey surveyType;
+    private boolean taken = false;
 
     /**
      * Survey constructor.
@@ -78,6 +79,7 @@ public class Survey implements Serializable {
             questionNumber++;
             question.ask();
         }
+        this.taken = true;
     }
 
     /**
@@ -119,6 +121,30 @@ public class Survey implements Serializable {
 
     public TypesOfSurvey getSurveyType() {
         return surveyType;
+    }
+
+    /**
+     *
+     * @return boolean representing whether the survey has be taken.
+     */
+    public boolean isTaken() {
+        return this.taken;
+    }
+
+    /**
+     * Returns the response at ordinal in the correct answers
+     * @param ordinal int representing the ordinal of the correct answer requested
+     * @return Response storing the correct answer desired
+     */
+    public Response getCorrectAnswer(int ordinal) {
+        throw new UnsupportedOperationException("Invalid Operation");
+    }
+
+    /**
+     * Grades the test
+     */
+    public void gradeTest() {
+        throw new UnsupportedOperationException("Invalid Operation");
     }
 
     /***********************************************Serialization****************************************************/
