@@ -331,7 +331,7 @@ public class TestManager extends SurveyManager{
                 break;
             case MATCHING:
                 correctAnswer = new PairResponse();
-                correctAnswer.updateChoices(newQuestion.getChoices());
+                correctAnswer.updateMatches(((Matching) newQuestion).getLeftColumn(), ((Matching) newQuestion).getRightColumn());
                 break;
             case VALID_DATE:
                 correctAnswer = new DateResponse();
