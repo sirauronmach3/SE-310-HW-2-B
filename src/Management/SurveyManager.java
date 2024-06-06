@@ -273,6 +273,10 @@ public class SurveyManager {
         // convert the array to an ArrayList
         ArrayList<File> fileList = new ArrayList<>(Arrays.asList(filesArray));
 
+        if (fileList == null) { // error check
+            fileList = new ArrayList<>();
+        }
+
         return fileList;
     }
 
