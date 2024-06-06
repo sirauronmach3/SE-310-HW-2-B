@@ -20,12 +20,6 @@ public class ValidDate extends Question {
     }
 
     @Override
-    public void ask() {
-        displayPrompt();
-        respondToPrompt();
-    }
-
-    @Override
     public void displayChoices() {
         throw new UnsupportedOperationException("Invalid operation");
     }
