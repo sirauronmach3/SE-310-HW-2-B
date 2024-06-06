@@ -79,7 +79,7 @@ public class Test extends Survey{
     private void displayGrade() {
         Out out = Out.getInstance();
         if (grade == null) {
-            out.say(ungraded);
+            out.say("\n" + ungraded);
         } else {
             out.say("\nGrade: " + grade +"/100");
         }
@@ -117,6 +117,7 @@ public class Test extends Survey{
 
         // update the grade based on this grading
         this.grade = (correctAnswers / totalQuestions) * 100;
+        displayGrade();
     }
 
     /***********************************************Serialization****************************************************/
