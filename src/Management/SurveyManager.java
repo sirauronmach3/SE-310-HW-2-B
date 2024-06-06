@@ -170,8 +170,8 @@ public class SurveyManager {
         saved = false;
         Out out = Out.getInstance();
         In in = In.getInstance();
-        int questionNumber = -1;
-        Question question = null;
+        int questionNumber;
+        Question question;
 
         if (currentSurvey == null) { // verification
             out.say("You must have a survey loaded in order to modify it.");

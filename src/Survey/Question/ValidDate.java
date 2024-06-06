@@ -22,7 +22,7 @@ public class ValidDate extends Question {
     @Override
     public void ask() {
         displayPrompt();
-        getResponse();
+        respondToPrompt();
     }
 
     @Override

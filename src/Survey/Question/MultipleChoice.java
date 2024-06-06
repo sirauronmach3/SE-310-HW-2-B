@@ -32,7 +32,7 @@ public class MultipleChoice extends Question {
     public void ask() {
         displayPrompt();
         displayChoices();
-        getResponse();
+        respondToPrompt();
     }
 
     /**

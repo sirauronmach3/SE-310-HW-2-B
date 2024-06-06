@@ -81,14 +81,14 @@ public abstract class Question implements Serializable {
      */
     public void ask() {
         displayPrompt();
-        getResponse();
+        respondToPrompt();
     }
 
     /**
      * Method to get user's response to the question.
      * call answer's respond() method
      */
-    protected void getResponse() {
+    protected void respondToPrompt() {
         answer.respond();
     }
 
@@ -124,5 +124,13 @@ public abstract class Question implements Serializable {
 
     public int getNumberOfAnswers() {
         return answer.getNumberOfAnswers();
+    }
+
+    /**
+     * Returns the answer to this question
+     * @return
+     */
+    public Response getAnswer() {
+        return answer;
     }
 }
