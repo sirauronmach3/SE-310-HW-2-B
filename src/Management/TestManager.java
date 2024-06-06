@@ -86,7 +86,7 @@ public class TestManager extends SurveyManager{
                 break;
             case GRADE:
                 out.say("Selection: " + TestManagerMenuOptions.GRADE.name);
-//                grade(); // TODO grade
+                grade();
                 break;
             case RETURN:
                 out.say("Selection: " + TestManagerMenuOptions.RETURN.name);
@@ -96,6 +96,18 @@ public class TestManager extends SurveyManager{
                 break;
         }
         return true;
+    }
+
+    /**
+     * Grades the test if it has been taken
+     */
+    private void grade() {
+        Out out = Out.getInstance();
+        if (currentSurvey.isTaken()) {
+            out.say("The test must be completed before grading.");
+        } else {
+            currentSurvey.gradeTest();
+        }
     }
 
     /**
