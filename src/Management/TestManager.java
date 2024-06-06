@@ -58,7 +58,7 @@ public class TestManager extends SurveyManager{
                 break;
             case DISPLAY_WITH_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITH_KEY.name);
-                displayWithKey(); // TODO test displayWithKey
+                displayWithKey();
                 break;
             case DISPLAY_WITHOUT_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITHOUT_KEY.name);
@@ -104,9 +104,9 @@ public class TestManager extends SurveyManager{
     private void grade() {
         Out out = Out.getInstance();
         if (currentSurvey.isTaken()) {
-            out.say("The test must be completed before grading.");
-        } else {
             currentSurvey.gradeTest();
+        } else {
+            out.say("The test must be completed before grading.");
         }
     }
 
