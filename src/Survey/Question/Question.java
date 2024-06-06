@@ -128,7 +128,7 @@ public abstract class Question implements Serializable {
 
     /**
      * Returns the answer to this question
-     * @return
+     * @return Response containing the given answer to the question
      */
     public Response getAnswer() {
         return answer;

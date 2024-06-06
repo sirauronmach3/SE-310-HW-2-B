@@ -121,7 +121,7 @@ public class Survey implements Serializable {
 
     /**
      * Returns an enum representing the type of survey this is.
-     * @return
+     * @return TypesOfSurvey enum representing what kind of survey this is.
      */
     public TypesOfSurvey getSurveyType() {
         return surveyType;
