@@ -74,7 +74,7 @@ public class TestManager extends SurveyManager{
                 break;
             case TAKE:
                 out.say("Selection: " + TestManagerMenuOptions.TAKE.name);
-                takeSurvey(); // TODO take
+                takeSurvey();
                 break;
             case MODIFY:
                 out.say("Selection: " + TestManagerMenuOptions.MODIFY.name);
