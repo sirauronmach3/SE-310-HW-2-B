@@ -2,6 +2,7 @@ package Survey;
 
 import Management.QuestionType;
 import Survey.Question.Question;
+import Survey.Response.OpenEndedResponse;
 import Survey.Response.Response;
 import utils.Out;
 import utils.SerializationIDs;
@@ -71,6 +72,40 @@ public class Test extends Survey{
         } else {
             out.say("Grade: " + grade);
         }
+    }
+
+    @Override
+    public Response getCorrectAnswer(int ordinal) {
+        if (ordinal >= correctAnswers.size()) { // input validation
+            return new OpenEndedResponse(); // dunno, this should respond true always for isEquals
+        }
+        return correctAnswers.get(ordinal);
+    }
+
+    @Override
+    public void gradeTest() {
+        // setup
+        double totalQuestions = getNumberOfQuestions();
+        double correctAnswers = 0;
+        Response givenAnswer, correctAnswer;
+        boolean correct;
+
+        for (int i = 0; i < totalQuestions; i++) {
+            // Get the given answer and the correct answer
+            givenAnswer = getQuestion(i).getAnswer();
+            correctAnswer = getCorrectAnswer(i);
+
+            // Determine if the given answer is correct
+            correct = givenAnswer.isEqual(correctAnswer);
+
+            // if the answer is correct, increment the number of correct answers
+            if (correct) {
+                correctAnswers++;
+            }
+        }
+
+        // update the grade based on this grading
+        this.grade = (correctAnswers / totalQuestions) * 100;
     }
 
     /***********************************************Serialization****************************************************/
