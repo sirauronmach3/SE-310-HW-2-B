@@ -17,6 +17,7 @@ public abstract class Out {
     protected static ComType comType = ComType.CONSOLE;
     // The instance that gets returned for all getInstance calls
     private static Out output;
+
     // No public c'tor to fit the singleton requirements
     protected Out() {
     }

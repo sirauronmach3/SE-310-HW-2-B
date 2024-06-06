@@ -18,6 +18,7 @@ public enum SerializationIDs {
     TEST(16L);
 
     public final long uid;
+
     SerializationIDs(long uid) {
         this.uid = uid;
     }

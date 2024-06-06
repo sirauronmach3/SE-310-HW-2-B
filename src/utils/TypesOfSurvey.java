@@ -6,5 +6,8 @@ public enum TypesOfSurvey {
     EXIT("Quit");
 
     public final String name;
-    TypesOfSurvey(String name) {this.name = name;}
+
+    TypesOfSurvey(String name) {
+        this.name = name;
+    }
 }

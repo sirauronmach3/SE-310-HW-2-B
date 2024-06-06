@@ -19,7 +19,7 @@ import java.util.Arrays;
  * SurveyManager class is the main driver for the Surveys.
  * It provides menus for loading, saving, creating, displaying, and modifying different Survey objects.
  * It has a path to the file storage location.
- *
+ * <p>
  * SurveyManager is not Serializable
  */
 public class SurveyManager {
@@ -50,7 +50,7 @@ public class SurveyManager {
     /**
      * Display the top level menu.
      * Gets user input and perform logic as appropriate
-     *
+     * <p>
      * Does not explicitly change anything. Passes user input to handleMenuSelection method.
      * Takes no arguments.
      * Returns no values.
@@ -160,7 +160,7 @@ public class SurveyManager {
     /**
      * Modify the loaded survey.
      * Prompts user for a question number, uses QuestionEditor class to edit the question.
-     *
+     * <p>
      * If no survey is loaded, will output error message.
      * No special handling for surveys with no questions.
      * Marks the survey as not saved.

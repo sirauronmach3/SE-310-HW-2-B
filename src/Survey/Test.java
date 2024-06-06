@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class Test extends Survey{
+public class Test extends Survey {
     /**
      * ID for serialization
      */
@@ -62,7 +62,7 @@ public class Test extends Survey{
             if (question.getQuestionType() == QuestionType.ESSAY) {
                 out.say("No specifically correct answer for this question.");
             } else {
-                out.say("Correct answer for question #" + questionNumber +":");
+                out.say("Correct answer for question #" + questionNumber + ":");
                 answer.display();
             }
         }
@@ -81,7 +81,7 @@ public class Test extends Survey{
         if (grade == null) {
             out.say("\n" + ungraded);
         } else {
-            out.say("\nGrade: " + grade +"/100");
+            out.say("\nGrade: " + grade + "/100");
         }
     }
 

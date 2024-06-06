@@ -19,6 +19,7 @@ public abstract class In {
     protected static ComType comType = ComType.CONSOLE;
     // The instance that gets returned for all getInstance calls
     private static In input;
+
     // No public c'tor to fit the singleton requirements
     protected In() {
     }

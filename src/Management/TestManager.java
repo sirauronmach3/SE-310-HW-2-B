@@ -10,7 +10,7 @@ import utils.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class TestManager extends SurveyManager{
+public class TestManager extends SurveyManager {
     /**
      * Survey Manager constructor
      *
@@ -46,6 +46,7 @@ public class TestManager extends SurveyManager{
 
     /**
      * Handle the user selection from the top level menu for Test
+     *
      * @param selection TestMangerMenuOptions enum representing the user's selection
      * @return boolean for whether to continue at the top menu or move back to the main driver.
      */
@@ -141,7 +142,7 @@ public class TestManager extends SurveyManager{
      */
     private void createTest() {
         Out out = Out.getInstance();
-        if(!saved) {
+        if (!saved) {
             if (!notSaved()) {
                 out.say("Keeping current survey");
                 return;
@@ -150,7 +151,7 @@ public class TestManager extends SurveyManager{
         currentSurvey = new Test();
         out.say("New Test Created");
         saved = false;
-        
+
         addQuestionsToTest();
     }
 
@@ -180,6 +181,7 @@ public class TestManager extends SurveyManager{
 
     /**
      * Handles a new question to then create a correct answer to be stored in the test.
+     *
      * @param newQuestion the new question that does not yet have a correct answer.
      */
     private void addCorrectAnswer(Question newQuestion) {
@@ -190,7 +192,7 @@ public class TestManager extends SurveyManager{
         Response correctAnswer = getNewResponse(newQuestion);
 
         // based on type of question, get correct answer from user
-        switch(type) {
+        switch (type) {
             case MULTIPLE_CHOICE: // fall through, multiple choice and true-false use the same response
             case TRUE_FALSE:
                 multipleChoiceAnswer(correctAnswer, newQuestion);
@@ -213,8 +215,9 @@ public class TestManager extends SurveyManager{
 
     /**
      * Populates the correct answer for a matching question
+     *
      * @param correctAnswer Response to be populated
-     * @param newQuestion Question that is to have the correct answer created for it
+     * @param newQuestion   Question that is to have the correct answer created for it
      */
     private void matchingAnswer(Response correctAnswer, Question newQuestion) {
         // i/o
@@ -230,7 +233,7 @@ public class TestManager extends SurveyManager{
 
         // getting answers
         out.say("Enter the correct answer ...");
-        while((size = leftColumn.size()) > 0) {
+        while ((size = leftColumn.size()) > 0) {
             out.say("Remaining options:");
             for (int j = 0; j < size; j++) {
                 int number = j + 1;
@@ -254,25 +257,28 @@ public class TestManager extends SurveyManager{
 
     /**
      * Populates the correct answer for a Valid Date question
+     *
      * @param correctAnswer Response to be populated
      */
     private void validDateAnswer(Response correctAnswer) {
         Out out = Out.getInstance();
         In in = In.getInstance();
 
-        while(true){
+        while (true) {
             out.say("Enter the correct date in the following format: mm/dd/yyyy");
             String correctDate = in.readStr();
-            if(InputHelper.validateDate(correctDate)) { // validate date
+            if (InputHelper.validateDate(correctDate)) { // validate date
                 correctAnswer.setAnswer(correctDate); // add correct answer
                 return;
             }
         }
     }
+
     /**
      * Populates the correct answer for a short answer question
+     *
      * @param correctAnswer Response to be populated
-     * @param newQuestion Question that is to have the correct answer created for it
+     * @param newQuestion   Question that is to have the correct answer created for it
      */
     private void shortAnswer(Response correctAnswer, Question newQuestion) {
         Out out = Out.getInstance();
@@ -292,8 +298,9 @@ public class TestManager extends SurveyManager{
 
     /**
      * Populates the correct answer for a true/false or multiple choice question
+     *
      * @param correctAnswer Response to be populated
-     * @param newQuestion Question that is to have the correct answer created for it
+     * @param newQuestion   Question that is to have the correct answer created for it
      */
     private void multipleChoiceAnswer(Response correctAnswer, Question newQuestion) {
         Out out = Out.getInstance();
@@ -322,6 +329,7 @@ public class TestManager extends SurveyManager{
 
     /**
      * Creates and returns a Response to store correct answer for the given Question
+     *
      * @param newQuestion Question to have a correct answer assigned to it.
      * @return Response that still needs to have correct answer put into it
      */

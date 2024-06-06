@@ -90,8 +90,7 @@ public class PairResponse extends Response {
     public boolean isEqual(Response response) {
         if (!(response instanceof PairResponse)) {
             return false;
-        }
-        else {
+        } else {
             HashMap<String, String> pairResponse = ((PairResponse) response).getAnswer();
             return this.answer.equals(pairResponse);
         }
@@ -99,6 +98,7 @@ public class PairResponse extends Response {
 
     /**
      * Returns a copy of the answer stored in this Response
+     *
      * @return HashMap<String, String> copy of answer from this Response
      */
     public HashMap<String, String> getAnswer() {

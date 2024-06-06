@@ -89,6 +89,7 @@ public class InputHelper {
             return false;
         }
     }
+
     /**
      * Checks if input is a valid filename.
      * <p>Filenames may not include . or \ or / and may not start or end with - or _</p>
@@ -99,7 +100,8 @@ public class InputHelper {
     public static boolean validFilename(String input) {
         if (input.contains(".") || input.contains("/") || input.contains("\\")) {
             return false;
-        } else return !input.endsWith("_") && !input.substring(0, 1).contains("_") && !input.endsWith("-") && !input.substring(0, 1).contains("-");
+        } else
+            return !input.endsWith("_") && !input.substring(0, 1).contains("_") && !input.endsWith("-") && !input.substring(0, 1).contains("-");
     }
 
     public static boolean validateDate(String input) {

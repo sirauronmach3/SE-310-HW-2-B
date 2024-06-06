@@ -50,11 +50,6 @@ public class OpenEndedResponse extends Response {
 
     @Override
     public boolean isEqual(Response other) {
-        if (other.getClass().equals(this.getClass())) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return other.getClass().equals(this.getClass());
     }
 }

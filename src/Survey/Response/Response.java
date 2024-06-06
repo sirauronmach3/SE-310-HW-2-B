@@ -68,6 +68,7 @@ public abstract class Response implements Serializable {
     public void updateChoices(ArrayList<String> newChoices) {
         throw new UnsupportedOperationException("Invalid operation");
     }
+
     /**
      * Replaces current choices for question with new lists of choices.
      * <p>ONLY supported for MATCHING</p>
@@ -80,14 +81,15 @@ public abstract class Response implements Serializable {
     }
 
     /**
-     *  Compares a response to the calling object's response and determines if they are sufficiently equivalent.
-     *  For use in grading tests by comparing a given response to the correct answer.
+     * Compares a response to the calling object's response and determines if they are sufficiently equivalent.
+     * For use in grading tests by comparing a given response to the correct answer.
+     *
      * @param other Response to be compared to calling Response Object
      * @return <ul>False if: <li>calling Response is not a concrete implementation of response.</li>
-     *      <li>False if calling response and other Response are not the same response.</li>
-     *      <li>False if calling response and other Response do not have identical (ignoring case) content. </li></ul>
-     *      <p></p>
-     *      True if calling response and other response are of the same type of response and have the same content.
+     * <li>False if calling response and other Response are not the same response.</li>
+     * <li>False if calling response and other Response do not have identical (ignoring case) content. </li></ul>
+     * <p></p>
+     * True if calling response and other response are of the same type of response and have the same content.
      */
     public boolean isEqual(Response other) {
         return false;
@@ -97,7 +99,7 @@ public abstract class Response implements Serializable {
         return this.numberOfAllowedAnswers;
     }
 
-    public void setAnswer(ArrayList<String> answers){
+    public void setAnswer(ArrayList<String> answers) {
         throw new UnsupportedOperationException("Invalid Operation");
     }
 

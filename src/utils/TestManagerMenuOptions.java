@@ -13,6 +13,7 @@ public enum TestManagerMenuOptions {
     RETURN("Return to the previous menu");
 
     public final String name;
+
     TestManagerMenuOptions(String name) {
         this.name = name;
     }

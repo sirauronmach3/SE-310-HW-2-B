@@ -4,7 +4,7 @@ import utils.In;
 import utils.Out;
 import utils.TypesOfSurvey;
 
-import static utils.TypesOfSurvey.*;
+import static utils.TypesOfSurvey.values;
 
 public class MainDriver {
     private final String path;
@@ -39,7 +39,7 @@ public class MainDriver {
         }
     }
 
-    public void handleTopLevelMenu(TypesOfSurvey type){
+    public void handleTopLevelMenu(TypesOfSurvey type) {
         switch (type) {
             case TEST:
                 testManagerStart();

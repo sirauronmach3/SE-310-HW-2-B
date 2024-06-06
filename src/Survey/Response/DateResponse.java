@@ -87,13 +87,12 @@ public class DateResponse extends Response {
             int[] date1 = this.getAnswer();
             int[] date2 = ((DateResponse) other).getAnswer();
             for (int i = 0; i < 3; i++) {
-                if(date1[i] != date2[i]) {
+                if (date1[i] != date2[i]) {
                     return false;
                 }
             }
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

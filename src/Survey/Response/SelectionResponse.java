@@ -74,7 +74,7 @@ public class SelectionResponse extends Response {
 
     @Override
     public boolean isEqual(Response other) {
-        if (this.getClass().equals(other.getClass())){
+        if (this.getClass().equals(other.getClass())) {
             ArrayList<String> thisAnswer = this.getAnswer();
             ArrayList<String> otherAnswer = ((SelectionResponse) other).getAnswer();
 
@@ -85,8 +85,7 @@ public class SelectionResponse extends Response {
             for (String string : thisAnswer) {
                 if (otherAnswer.contains(string)) {
                     continue;
-                }
-                else {
+                } else {
                     return false; /** If this answer contains a string */
                 }
             }
