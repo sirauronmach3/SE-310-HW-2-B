@@ -119,6 +119,10 @@ public class Survey implements Serializable {
         throw new UnsupportedOperationException("Invalid Operation");
     }
 
+    /**
+     * Returns an enum representing the type of survey this is.
+     * @return
+     */
     public TypesOfSurvey getSurveyType() {
         return surveyType;
     }
