@@ -106,6 +106,7 @@ public class Survey implements Serializable {
 
     /**
      * Add the given response to the list of correct answers
+     *
      * @param correctAnswer Response that stores the correct answer to a question
      */
     public void addCorrectAnswer(Response correctAnswer) {
@@ -121,6 +122,7 @@ public class Survey implements Serializable {
 
     /**
      * Returns an enum representing the type of survey this is.
+     *
      * @return TypesOfSurvey enum representing what kind of survey this is.
      */
     public TypesOfSurvey getSurveyType() {
@@ -128,7 +130,6 @@ public class Survey implements Serializable {
     }
 
     /**
-     *
      * @return boolean representing whether the survey has be taken.
      */
     public boolean isTaken() {
@@ -137,6 +138,7 @@ public class Survey implements Serializable {
 
     /**
      * Returns the response at ordinal in the correct answers
+     *
      * @param ordinal int representing the ordinal of the correct answer requested
      * @return Response storing the correct answer desired
      */
@@ -164,7 +166,6 @@ public class Survey implements Serializable {
             e.printStackTrace();
         }
     }
-
 
 
 }
