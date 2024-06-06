@@ -21,6 +21,8 @@ public class Test extends Survey{
      * ArrayList of the correct answers
      */
     private final ArrayList<Response> correctAnswers = new ArrayList<>();
+    private Double grade = null;
+    private final String ungraded = "Ungraded";
 
     /**
      * Test constructor
@@ -62,7 +64,12 @@ public class Test extends Survey{
                 out.say("Correct answer for question #" + questionNumber +":");
                 answer.display();
             }
+        }
 
+        if (grade == null) {
+            out.say("Test ungraded");
+        } else {
+            out.say("Grade: " + grade);
         }
     }
 
