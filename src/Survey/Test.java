@@ -67,10 +67,21 @@ public class Test extends Survey{
             }
         }
 
+        displayGrade();
+    }
+
+    @Override
+    public void display() {
+        super.display();
+        displayGrade();
+    }
+
+    private void displayGrade() {
+        Out out = Out.getInstance();
         if (grade == null) {
-            out.say("Test ungraded");
+            out.say(ungraded);
         } else {
-            out.say("Grade: " + grade);
+            out.say("\nGrade: " + grade +"/100");
         }
     }
 
