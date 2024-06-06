@@ -54,7 +54,7 @@ public class TestManager extends SurveyManager{
         switch (selection) {
             case CREATE_NEW:
                 out.say("Selection: " + TestManagerMenuOptions.CREATE_NEW.name);
-                createTest(); // TODO creating matching questions is not working right now, fix
+                createTest();
                 break;
             case DISPLAY_WITH_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITH_KEY.name);
