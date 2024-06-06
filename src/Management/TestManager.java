@@ -67,7 +67,7 @@ public class TestManager extends SurveyManager {
                 break;
             case LOAD:
                 out.say("Selection: " + TestManagerMenuOptions.LOAD.name);
-                loadSurvey(); // TODO load
+                loadSurvey(TypesOfSurvey.TEST); // TODO load
                 break;
             case SAVE:
                 out.say("Selection: " + TestManagerMenuOptions.SAVE.name);
@@ -75,7 +75,7 @@ public class TestManager extends SurveyManager {
                 break;
             case TAKE:
                 out.say("Selection: " + TestManagerMenuOptions.TAKE.name);
-                takeSurvey();
+                takeTest(); // TODO
                 break;
             case MODIFY:
                 out.say("Selection: " + TestManagerMenuOptions.MODIFY.name);
@@ -97,6 +97,20 @@ public class TestManager extends SurveyManager {
                 break;
         }
         return true;
+    }
+
+    private void takeTest() {
+        Out out = Out.getInstance();
+        if (!saved) {
+            if (!notSaved()) {
+                out.say("Keeping current survey");
+                return;
+            }
+        }
+
+        loadSurvey(TypesOfSurvey.TEST);
+        takeSurvey();
+        grade();
     }
 
     /**

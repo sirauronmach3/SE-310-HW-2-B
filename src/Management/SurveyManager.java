@@ -102,7 +102,7 @@ public class SurveyManager {
                 return true;
             case 3:
                 out.say("Selection: Load an existing Survey");
-                loadSurvey();
+                loadSurvey(TypesOfSurvey.SURVEY);
                 // Load a survey
                 return true;
             case 4:
@@ -191,7 +191,8 @@ public class SurveyManager {
      */
     protected void takeSurvey() {
         if (currentSurvey == null) {
-            Out.getInstance().say("You must have a survey loaded in order to take it.");
+            Out.getInstance().say("You must have a "
+                    + currentSurvey.getSurveyType().name + " loaded in order to take it.");
         } else {
             currentSurvey.take();
             this.saved = false;
@@ -201,7 +202,7 @@ public class SurveyManager {
     /**
      * Lists saved surveys, selects survey, and loads it from path.
      */
-    protected void loadSurvey() {
+    protected void loadSurvey(TypesOfSurvey type) {
         // setup
         Out out = Out.getInstance();
         In in = In.getInstance();
@@ -215,7 +216,7 @@ public class SurveyManager {
         }
 
         // get and list files in directory
-        ArrayList<File> files = getListSavedSurveys();
+        ArrayList<File> files = getListSavedSurveys(type);
         listSavedSurveys(files);
 
         // ask for which survey
@@ -258,7 +259,7 @@ public class SurveyManager {
         }
     }
 
-    private ArrayList<File> getListSavedSurveys() {
+    private ArrayList<File> getListSavedSurveys(TypesOfSurvey type) {
         File directory = new File(path);
 
         // check if the path is a directory
@@ -268,7 +269,9 @@ public class SurveyManager {
         }
 
         // list files in the directory
-        File[] filesArray = directory.listFiles((dir, name) -> name.toLowerCase().endsWith(".ser"));
+        File[] filesArray = directory.listFiles((dir, name) ->
+                (name.toLowerCase().endsWith(".ser") && name.startsWith(type.name))
+        );
 
         // convert the array to an ArrayList
         ArrayList<File> fileList = new ArrayList<>(Arrays.asList(filesArray));
@@ -290,7 +293,7 @@ public class SurveyManager {
             out.say("You must have a " + type.name + " loaded in order to save it.");
         } else {
             out.say("What would you like to name this " + currentSurvey.getSurveyType().name + "?");
-            String filename = in.readFilename() + ".ser";
+            String filename = type.name + "-" + in.readFilename() + ".ser";
             this.currentSurvey.save(this.path, filename);
 
             this.saved = true;
