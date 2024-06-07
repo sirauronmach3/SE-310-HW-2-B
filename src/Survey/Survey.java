@@ -21,7 +21,13 @@ public class Survey implements Serializable {
      * ArrayList of the questions
      */
     protected final ArrayList<Question> questions = new ArrayList<>();
+    /**
+     * Enum to store what kind of survey this is
+     */
     protected TypesOfSurvey surveyType;
+    /**
+     * boolean to store whether this test has been taken or not
+     */
     private boolean taken = false;
 
     /**
