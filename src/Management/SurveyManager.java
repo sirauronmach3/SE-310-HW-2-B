@@ -3,10 +3,7 @@ package Management;
 import Survey.Question.Question;
 import Survey.QuestionEditor;
 import Survey.Survey;
-import utils.ComType;
-import utils.In;
-import utils.Out;
-import utils.TypesOfSurvey;
+import utils.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,6 +11,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static utils.SurveyManagerMenuOptions.*;
 
 /**
  * SurveyManager class is the main driver for the Surveys.
@@ -58,25 +57,23 @@ public class SurveyManager {
     public void displayMenu() {
         int selection = 0;
         Out out = Out.getInstance();
+        SurveyManagerMenuOptions[] options = SurveyManagerMenuOptions.values();
+        int size = options.length;
         boolean cont = true;
 
         while (cont) {
             out.say("Survey Menu Options:");
             out.say("-------------------------------");
-            out.say("1: Create a new Survey");
-            out.say("2: Display Survey");
-            out.say("3: Load an existing Survey");
-            out.say("4: Save the current Survey");
-            out.say("5: Take the current Survey");
-            out.say("6: Modify the current Survey");
-            out.say("7: Return to previous menu");
+            for (int i = 0; i < size; i++) {
+                out.say((i + 1) + ": " + options[i].name);
+            }
             try {
                 out.say("Pick a menu option by number: ");
-                selection = In.getInstance().readIntWithinRange(1, 7);
+                selection = In.getInstance().readIntWithinRange(1, size) - 1;
             } catch (Exception e) {
-                selection = 0;
+                selection = SurveyManagerMenuOptions.RETURN.ordinal();
             } finally {
-                cont = handleMenuSelection(selection);
+                cont = handleMenuSelection(options[selection]);
             }
         }
     }
@@ -87,46 +84,50 @@ public class SurveyManager {
      *
      * @param selection int relating to menu selection.
      */
-    protected boolean handleMenuSelection(int selection) {
+    protected boolean handleMenuSelection(SurveyManagerMenuOptions selection) {
         Out out = Out.getInstance();
 
         switch (selection) {
-            case 1:
-                out.say("Selection: Create a new Survey");
+            case CREATE_NEW:
+                out.say("Selection: " + CREATE_NEW.name);
                 createSurvey();
-                return true;
-            case 2:
-                out.say("Selection: Display Survey");
+                break;
+            case DISPLAY:
+                out.say("Selection: " + DISPLAY.name);
                 displaySurvey();
                 // display a survey
-                return true;
-            case 3:
-                out.say("Selection: Load an existing Survey");
+                break;
+            case LOAD:
+                out.say("Selection: " + LOAD.name);
                 loadSurvey(TypesOfSurvey.SURVEY);
                 // Load a survey
-                return true;
-            case 4:
-                out.say("Selection: Save the current Survey");
+                break;
+            case SAVE:
+                out.say("Selection: " + SAVE.name);
                 saveSurvey(TypesOfSurvey.SURVEY);
                 // save survey
-                return true;
-            case 5:
-                out.say("Selection: Take the current Survey");
+                break;
+            case TAKE:
+                out.say("Selection: " + TAKE.name);
                 takeSurvey();
                 // take a survey
-                return true;
-            case 6:
-                out.say("Selection: Modify the current Survey");
+                break;
+            case MODIFY:
+                out.say("Selection: " + MODIFY.name);
                 modifySurvey();
                 // modify a survey
-                return true;
-            case 7:
-                out.say("Selection: Return to previous menu");
+                break;
+            case TABULATE:
+                out.say("Selection: " + TABULATE.name);
+                break;
+            case RETURN:
+                out.say("Selection: " + RETURN.name);
                 return quit();
             default:
                 out.say("Invalid selection");
-                return true;
+                break;
         }
+        return true;
     }
 
     /**
