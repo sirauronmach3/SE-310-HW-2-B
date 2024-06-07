@@ -161,6 +161,14 @@ public class Survey implements Serializable {
         throw new UnsupportedOperationException("Invalid Operation");
     }
 
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
     /***********************************************Serialization****************************************************/
 
     /**
