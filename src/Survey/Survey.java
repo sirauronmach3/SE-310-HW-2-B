@@ -30,6 +30,8 @@ public class Survey implements Serializable {
      */
     private boolean taken = false;
 
+    protected String filename;
+
     /**
      * Survey constructor.
      */
