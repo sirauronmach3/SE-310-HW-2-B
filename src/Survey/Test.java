@@ -23,7 +23,7 @@ public class Test extends Survey {
      */
     private final ArrayList<Response> correctAnswers = new ArrayList<>();
     private Double grade = null;
-    private final String ungraded = "Ungraded";
+
 
     /**
      * Test constructor
@@ -79,6 +79,7 @@ public class Test extends Survey {
     private void displayGrade() {
         Out out = Out.getInstance();
         if (grade == null) {
+            String ungraded = "Ungraded";
             out.say("\n" + ungraded);
         } else {
             out.say("\nGrade: " + grade + "/100");
