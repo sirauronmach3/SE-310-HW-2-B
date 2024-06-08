@@ -104,6 +104,8 @@ public class Matching extends Question {
                     return false;
                 }
             }
+        } else {
+            return false;
         }
 
         // rightColumn
