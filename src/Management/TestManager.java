@@ -224,15 +224,16 @@ public class TestManager extends SurveyManager {
 
         while (another) {
             Question newQuestion = QuestionEditor.createQuestion();
-            if (newQuestion == null) {
-                break;
+            if (newQuestion == null) { // error checking
+                out.say("There was an issue creating a new question. Please try again." +
+                        "\nIf this issue persists, troubleshoot.\n");
+            } else {
+                addCorrectAnswer(newQuestion);
+                currentSurvey.addQuestion(newQuestion);
+
+                out.say("Added a " + newQuestion.getQuestionType().label + " question to the survey.\n");
             }
-            addCorrectAnswer(newQuestion);
-            currentSurvey.addQuestion(newQuestion);
 
-
-            out.say("Added a " + newQuestion.getQuestionType().label + " question to the survey.");
-            out.say(""); // whitespace
             another = in.getYesNo("Would you like to add another question?");
         }
     }
