@@ -108,6 +108,7 @@ public class InputHelper {
     public static boolean validateDate(String input) {
         boolean valid = true;
         try {
+            // translate string into integers
             String[] date = input.split("/");
             int[] dateArray = {0, 0, 0};
             for (int i = 0; i < 3; i++) {
@@ -118,14 +119,12 @@ public class InputHelper {
             valid &= intWithinRange(dateArray[0], 1, 12);
             if (!valid) {
                 Out.getInstance().say("Invalid month");
-                return false;
             }
 
             // Validate Year
             valid &= intWithinRange(dateArray[2], 0, 9999);
             if (!valid) {
                 Out.getInstance().say("Invalid year");
-                return false;
             }
 
             // Validate day
