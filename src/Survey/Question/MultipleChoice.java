@@ -19,6 +19,7 @@ public class MultipleChoice extends Question {
 
         this.answer = new SelectionResponse();
         this.answer.setMultipleAnswersAllowed(super.multipleAnswersAllowed);
+        this.choices = new ArrayList<>();
     }
 
     @Override
