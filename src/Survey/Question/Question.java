@@ -39,7 +39,7 @@ public abstract class Question implements Serializable {
     /**
      * String representing the prompt for the question.
      */
-    protected String prompt = null;
+    protected String prompt = "";
 
     /**
      * Displays the question's prompt, choices (if any), and answer (if answered).
@@ -135,9 +135,16 @@ public abstract class Question implements Serializable {
         return answer;
     }
 
+    /**
+     * Returns whether the Question and the given Question are equal (ignoring user answer)
+     * @param otherQuestion A question to be compared against this question
+     * @return True if the two questions are sufficiently equivalent
+     * <p></p>
+     * False if the two questions are dissimilar.
+     */
     public boolean isEqual(Question otherQuestion) {
         return (this.multipleAnswersAllowed == otherQuestion.multipleAnswersAllowed) &&
-                (this.prompt.equals(otherQuestion.prompt)) &&
+                (this.prompt.equalsIgnoreCase(otherQuestion.prompt)) &&
                 (this.questionType == otherQuestion.questionType);
     }
 }
