@@ -55,7 +55,7 @@ public class TestManager extends SurveyManager {
         switch (selection) {
             case CREATE_NEW:
                 out.say("Selection: " + TestManagerMenuOptions.CREATE_NEW.name);
-                createTest();
+                createTest(); // TODO test with changes to correct answer creation
                 break;
             case DISPLAY_WITH_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITH_KEY.name);
