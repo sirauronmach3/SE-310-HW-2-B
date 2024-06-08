@@ -143,8 +143,14 @@ public abstract class Question implements Serializable {
      * False if the two questions are dissimilar.
      */
     public boolean isEqual(Question otherQuestion) {
+        if (this.answer == null) {
+            if (otherQuestion.answer != null) {
+                return false;
+            }
+        }
         return (this.multipleAnswersAllowed == otherQuestion.multipleAnswersAllowed) &&
                 (this.prompt.equalsIgnoreCase(otherQuestion.prompt)) &&
-                (this.questionType == otherQuestion.questionType);
+                (this.questionType == otherQuestion.questionType) &&
+                (this.answer.getNumberOfAnswers() == otherQuestion.answer.getNumberOfAnswers());
     }
 }
