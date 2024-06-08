@@ -134,4 +134,8 @@ public abstract class Question implements Serializable {
     public Response getAnswer() {
         return answer;
     }
+
+    public boolean isEqual(Question otherQuestion) {
+        return false;
+    }
 }
