@@ -18,14 +18,4 @@ public class ValidDate extends Question {
 
         this.answer = new DateResponse();
     }
-
-    @Override
-    public void displayChoices() {
-        throw new UnsupportedOperationException("Invalid operation");
-    }
-
-    @Override
-    public ArrayList<String> getChoices() {
-        throw new UnsupportedOperationException("Invalid operation");
-    }
 }

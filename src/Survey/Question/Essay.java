@@ -28,14 +28,4 @@ public class Essay extends Question {
         displayPrompt();
         answer.respond();
     }
-
-    @Override
-    public void displayChoices() {
-        throw new UnsupportedOperationException("Invalid operation");
-    }
-
-    @Override
-    public ArrayList<String> getChoices() {
-        throw new UnsupportedOperationException("Invalid operation");
-    }
 }
