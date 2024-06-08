@@ -79,7 +79,7 @@ public class TestManager extends SurveyManager {
                 break;
             case MODIFY:
                 out.say("Selection: " + TestManagerMenuOptions.MODIFY.name);
-//                modify(); // TODO modify
+                modifyTest(); // TODO modify
                 break;
             case TABULATE:
                 out.say("Selection: " + TestManagerMenuOptions.TABULATE.name);
@@ -97,6 +97,32 @@ public class TestManager extends SurveyManager {
                 break;
         }
         return true;
+    }
+
+    private void modifyTest() {
+        if (currentSurvey == null) {
+            Out.getInstance().say("You must have a survey loaded in order to modify it.");
+            return;
+        }
+        saved = false;
+        Out out = Out.getInstance();
+        In in = In.getInstance();
+        int questionOrdinal;
+        Question question;
+
+        out.say("Enter the question number you wish to modify.");
+        questionOrdinal = (in.readIntWithinRange(1, currentSurvey.getNumberOfQuestions()) - 1);
+        question = currentSurvey.getQuestion(questionOrdinal);
+
+        QuestionEditor.editQuestion(question);
+
+        if (in.getYesNo("Do you want to change the correct answer")) {
+            modifyCorrectAnswer(questionOrdinal);
+        }
+    }
+
+    private void modifyCorrectAnswer(int questionOrdinal) {
+
     }
 
     private void takeTest() {
