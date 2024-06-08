@@ -150,6 +150,10 @@ public class Test extends Survey {
         return true;
     }
 
+    private int getCorrectAnswersSize() {
+        return correctAnswers.size();
+    }
+
     /***********************************************Serialization****************************************************/
 
     /**
