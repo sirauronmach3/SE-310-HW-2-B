@@ -22,6 +22,9 @@ public class Test extends Survey {
      * ArrayList of the correct answers
      */
     private final ArrayList<Response> correctAnswers = new ArrayList<>();
+    /**
+     * Double to store the grade for the test
+     */
     private Double grade = null;
 
 
