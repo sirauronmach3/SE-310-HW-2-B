@@ -101,28 +101,47 @@ public class InputHelper {
         if (input.contains(".") || input.contains("/") || input.contains("\\")) {
             return false;
         } else
-            return !input.endsWith("_") && !input.substring(0, 1).contains("_") && !input.endsWith("-") && !input.substring(0, 1).contains("-");
+            return !input.endsWith("_") && !input.substring(0, 1).contains("_")
+                    && !input.endsWith("-") && !input.substring(0, 1).contains("-");
     }
 
     public static boolean validateDate(String input) {
         boolean valid = true;
         try {
             String[] date = input.split("/");
-            int[] n = {0, 0, 0};
+            int[] dateArray = {0, 0, 0};
             for (int i = 0; i < 3; i++) {
-                n[i] = Integer.parseInt(date[i]);
+                dateArray[i] = Integer.parseInt(date[i]);
             }
-            valid &= intWithinRange(n[0], 1, 12);
-            valid &= intWithinRange(n[2], 0, 2023);
-            if ((n[0] == 2) && (n[2] % 4 == 0)) {
-                valid &= intWithinRange(n[1], 1, 29);
-            } else {
-                valid &= intWithinRange(n[1], 1, DaysInMonth.DAYS_IN_MONTH[n[0]]);
+
+            // Validate month
+            valid &= intWithinRange(dateArray[0], 1, 12);
+            if (!valid) {
+                Out.getInstance().say("Invalid month");
+                return false;
             }
+
+            // Validate Year
+            valid &= intWithinRange(dateArray[2], 0, 9999);
+            if (!valid) {
+                Out.getInstance().say("Invalid year");
+                return false;
+            }
+
+            // Validate day
+            int dayMax = ((dateArray[0] == 2) && (dateArray[2] % 4 == 0)) ?
+                    DaysInMonth.FEBRUARY_LEAP_YEAR : DaysInMonth.DAYS_IN_MONTH[dateArray[0] - 1];
+            valid &= intWithinRange(dateArray[1], 1, dayMax);
+            if (!valid) {
+                Out.getInstance().say("Invalid day number");
+            }
+
+            return valid;
+        } catch (NumberFormatException e) {
+            Out.getInstance().say("Your response must use integers to represent the date.");
+            return false;
         } catch (Exception e) {
             return false;
-        } finally {
-            return valid;
         }
     }
 
