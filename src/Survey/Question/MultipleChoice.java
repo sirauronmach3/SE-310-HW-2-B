@@ -18,7 +18,7 @@ public class MultipleChoice extends Question {
         this.questionType = QuestionType.MULTIPLE_CHOICE;
 
         this.answer = new SelectionResponse();
-        this.answer.setMultipleAnswersAllowed(multipleAnswersAllowed);
+        this.answer.setMultipleAnswersAllowed(super.multipleAnswersAllowed);
     }
 
     @Override
@@ -52,16 +52,16 @@ public class MultipleChoice extends Question {
         // setup
         String output = "Choices:";
         int count = 0;
-        int total = choices.size();
+        int total = this.choices.size();
 
         // add all choices to the output String
         while (count < total) {
             count++;
-            output += "\n" + count + ") " + choices.get(count - 1);
+            output += "\n" + count + ") " + this.choices.get(count - 1);
 
             if (count < total) {
                 count++;
-                output += "\t\t" + count + ") " + choices.get(count - 1);
+                output += "\t\t" + count + ") " + this.choices.get(count - 1);
             }
         }
 
@@ -71,6 +71,6 @@ public class MultipleChoice extends Question {
 
     @Override
     public ArrayList<String> getChoices() {
-        return choices;
+        return this.choices;
     }
 }
