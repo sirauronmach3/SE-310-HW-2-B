@@ -116,13 +116,31 @@ public class TestManager extends SurveyManager {
 
         QuestionEditor.editQuestion(question);
 
-        if (in.getYesNo("Do you want to change the correct answer")) {
-            modifyCorrectAnswer(questionOrdinal);
+        if (in.getYesNo("Do you want to change the correct answer for this question?")) {
+            Response correctAnswer = currentSurvey.getCorrectAnswer(questionOrdinal);
+            modifyCorrectAnswer(correctAnswer, question);
         }
     }
 
-    private void modifyCorrectAnswer(int questionOrdinal) {
-
+    private void modifyCorrectAnswer(Response correctAnswer, Question question) {
+        QuestionType type = question.getQuestionType();
+        switch (type) {
+            case MULTIPLE_CHOICE: // fall through, multiple choice and true-false use the same response
+            case TRUE_FALSE:
+                multipleChoiceAnswer(correctAnswer, question);
+                break;
+            case ESSAY:
+                break; // open-ended questions auto-grade to correct
+            case SHORT_ANSWER:
+                shortAnswer(correctAnswer, question);
+                break;
+            case MATCHING:
+                matchingAnswer(correctAnswer, question);
+                break;
+            case VALID_DATE:
+                validDateAnswer(correctAnswer);
+                break;
+        }
     }
 
     private void takeTest() {
