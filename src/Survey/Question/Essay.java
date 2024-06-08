@@ -38,4 +38,10 @@ public class Essay extends Question {
     public ArrayList<String> getChoices() {
         throw new UnsupportedOperationException("Invalid operation");
     }
+
+    @Override
+    public boolean isEqual(Question otherQuestion) {
+        return (this.getQuestionType() == otherQuestion.getQuestionType())
+                && (this.prompt.equals(otherQuestion.prompt));
+    }
 }
