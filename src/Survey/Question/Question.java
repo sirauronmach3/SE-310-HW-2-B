@@ -136,6 +136,8 @@ public abstract class Question implements Serializable {
     }
 
     public boolean isEqual(Question otherQuestion) {
-        return false;
+        return (this.multipleAnswersAllowed == otherQuestion.multipleAnswersAllowed) &&
+                (this.prompt.equals(otherQuestion.prompt)) &&
+                (this.questionType == otherQuestion.questionType);
     }
 }
