@@ -30,7 +30,7 @@ public class Survey implements Serializable {
      */
     private boolean taken = false;
 
-    protected String filename;
+    protected String filename = "";
 
     /**
      * Survey constructor.
@@ -151,7 +151,7 @@ public class Survey implements Serializable {
      * @return Response storing the correct answer desired
      */
     public Response getCorrectAnswer(int ordinal) {
-        throw new UnsupportedOperationException("Invalid Operation");
+        return null;
     }
 
     /**
@@ -167,6 +167,42 @@ public class Survey implements Serializable {
 
     public void setFilename(String filename) {
         this.filename = filename;
+    }
+
+    public boolean isEqual(Survey other) {
+        if (other == null) { // if there is no other, false
+            return false;
+        }
+
+        if (this.surveyType != other.surveyType) { // if survey type different, false
+            return false;
+        }
+
+        if (!this.filename.equals(other.getFilename())) { // if named different, false
+            return false;
+        }
+
+        int size = this.questions.size();
+        if (size != other.questions.size()) { // if there aren't the same number of questions, false
+            return false;
+        }
+
+        // compare each question and correct answer (not user answers)
+        Question thisQuestion, otherQuestion = null;
+        Response thisCorrectAnswer, otherCorrectAnswer = null;
+        for (int i = 0; i < size; i++) {
+            thisQuestion = this.questions.get(i);
+            otherQuestion = other.questions.get(i);
+
+            thisCorrectAnswer = this.getCorrectAnswer(i);
+            otherCorrectAnswer = this.getCorrectAnswer(i);
+
+            if ( !(thisQuestion.isEqual(otherQuestion) && thisCorrectAnswer.isEqual(otherCorrectAnswer)) ) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /***********************************************Serialization****************************************************/
