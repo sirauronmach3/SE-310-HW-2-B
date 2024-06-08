@@ -15,6 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Date: 4/17/2024
  */
 public class SurveyTest {
+    /**
+     * Survey tests several elements of a Survey, and is sufficient to test these elements for Test as well.
+     */
+
     private Survey survey1;
     private Survey survey2;
     private Question question1;
