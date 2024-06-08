@@ -124,6 +124,32 @@ public class Test extends Survey {
         displayGrade();
     }
 
+    @Override
+    public boolean isEqual(Survey otherSurvey) {
+        // basic survey elements
+        if (!super.isEqual(otherSurvey)) {
+            return false;
+        }
+
+        // Test specific
+        Test otherTest = ((Test) otherSurvey);
+        // Verify correctAnswers are both of same size
+        if (correctAnswers.size() != otherTest.getCorrectAnswersSize()) {
+            return false;
+        }
+        Response thisCorrectAnswer, otherCorrectAnswer;
+        for (int i = 0; i < correctAnswers.size(); i++) {
+            thisCorrectAnswer = correctAnswers.get(i);
+            otherCorrectAnswer = otherTest.getCorrectAnswer(i);
+
+            if(!thisCorrectAnswer.isEqual(otherCorrectAnswer)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     /***********************************************Serialization****************************************************/
 
     /**
