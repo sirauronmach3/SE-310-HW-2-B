@@ -43,8 +43,8 @@ public class MatchingTest {
         left.add(numberThree);
         right.add(numberFour);
 
-        question1.updateChoices(toLowerCase(left), toLowerCase(right));
-        ((Matching)question2).updateChoices(toUpperCase(left), toUpperCase(right));
+        question1.updateChoices(TestTools.toLowerCase(left), TestTools.toLowerCase(right));
+        ((Matching)question2).updateChoices(TestTools.toUpperCase(left), TestTools.toUpperCase(right));
 
         assertTrue(question1.isEqual(question2));
     }
@@ -150,20 +150,5 @@ public class MatchingTest {
         ((Matching) question2).updateChoices(left2, right2);
 
         assertFalse(question1.isEqual(question2));
-    }
-
-    private ArrayList<String> toUpperCase(ArrayList<String> list) {
-        ArrayList<String> result = new ArrayList<>();
-        for (String s : list) {
-            result.add(s.toUpperCase());
-        }
-        return result;
-    }
-    private ArrayList<String> toLowerCase(ArrayList<String> list) {
-        ArrayList<String> result = new ArrayList<>();
-        for (String s : list) {
-            result.add(s.toLowerCase());
-        }
-        return result;
     }
 }
