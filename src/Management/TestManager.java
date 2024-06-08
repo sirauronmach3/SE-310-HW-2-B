@@ -67,15 +67,15 @@ public class TestManager extends SurveyManager {
                 break;
             case LOAD:
                 out.say("Selection: " + TestManagerMenuOptions.LOAD.name);
-                loadSurvey(TypesOfSurvey.TEST); // TODO load
+                loadSurvey(TypesOfSurvey.TEST); // TODO load, change hierarchy and stuff
                 break;
             case SAVE:
                 out.say("Selection: " + TestManagerMenuOptions.SAVE.name);
-                saveSurvey(TypesOfSurvey.TEST); // TODO test save
+                saveSurvey(TypesOfSurvey.TEST); // TODO test save, change hierarchy and stuff
                 break;
             case TAKE:
                 out.say("Selection: " + TestManagerMenuOptions.TAKE.name);
-                takeTest(); // TODO
+                takeTest(); // TODO, add hierarchy stuff
                 break;
             case MODIFY:
                 out.say("Selection: " + TestManagerMenuOptions.MODIFY.name);
