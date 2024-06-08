@@ -169,6 +169,13 @@ public class Survey implements Serializable {
         this.filename = filename;
     }
 
+    /**
+     * Compares this survey to another and determines if they are sufficiently equivalent
+     * @param other Survey to be compared
+     * @return True if it is sufficiently equivalent to this Survey.
+     * <p></p>
+     * False if not equivalent
+     */
     public boolean isEqual(Survey other) {
         if (other == null) { // if there is no other, false
             return false;
