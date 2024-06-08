@@ -77,4 +77,54 @@ public class Matching extends Question {
             }
         }
     }
+
+    @Override
+    public boolean isEqual(Question otherQuestion) {
+        // basic question elements
+        if(!super.isEqual(otherQuestion)) {
+            return false;
+        }
+
+        Matching otherMatching = (Matching) otherQuestion;
+
+        // leftColumn
+        if(this.leftColumn.size() == otherMatching.leftColumn.size()){
+            /**
+             * For every item in this left column, check for equivalent option in other
+             */
+            for(int i = 0; i < this.leftColumn.size(); i++){
+                boolean found = false;
+                for(int j = 0; j < this.leftColumn.size(); j++){
+                    if(this.leftColumn.get(i).equalsIgnoreCase(otherMatching.leftColumn.get(j))){
+                        found = true;
+                        break;
+                    }
+                }
+                if(!found){ // if no match found, they are not the same
+                    return false;
+                }
+            }
+        }
+
+        // rightColumn
+        if(this.rightColumn.size() == otherMatching.rightColumn.size()){
+            /**
+             * For every item in this left column, check for equivalent option in other
+             */
+            for(int i = 0; i < this.rightColumn.size(); i++){
+                boolean found = false;
+                for(int j = 0; j < this.rightColumn.size(); j++){
+                    if(this.rightColumn.get(i).equalsIgnoreCase(otherMatching.rightColumn.get(j))){
+                        found = true;
+                        break;
+                    }
+                }
+                if(!found){ // if no match found, they are not the same
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
 }
