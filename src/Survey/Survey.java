@@ -196,15 +196,11 @@ public class Survey implements Serializable {
 
         // compare each question and correct answer (not user answers)
         Question thisQuestion, otherQuestion = null;
-        Response thisCorrectAnswer, otherCorrectAnswer = null;
         for (int i = 0; i < size; i++) {
             thisQuestion = this.questions.get(i);
             otherQuestion = other.questions.get(i);
 
-            thisCorrectAnswer = this.getCorrectAnswer(i);
-            otherCorrectAnswer = this.getCorrectAnswer(i);
-
-            if ( !(thisQuestion.isEqual(otherQuestion) && thisCorrectAnswer.isEqual(otherCorrectAnswer)) ) {
+            if ( !(thisQuestion.isEqual(otherQuestion))) {
                 return false;
             }
         }
