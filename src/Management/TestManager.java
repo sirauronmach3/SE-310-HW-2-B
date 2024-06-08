@@ -250,23 +250,7 @@ public class TestManager extends SurveyManager {
         Response correctAnswer = getNewResponse(newQuestion);
 
         // based on type of question, get correct answer from user
-        switch (type) {
-            case MULTIPLE_CHOICE: // fall through, multiple choice and true-false use the same response
-            case TRUE_FALSE:
-                multipleChoiceAnswer(correctAnswer, newQuestion);
-                break;
-            case ESSAY:
-                break; // open-ended questions auto-grade to correct
-            case SHORT_ANSWER:
-                shortAnswer(correctAnswer, newQuestion);
-                break;
-            case MATCHING:
-                matchingAnswer(correctAnswer, newQuestion);
-                break;
-            case VALID_DATE:
-                validDateAnswer(correctAnswer);
-                break;
-        }
+        modifyCorrectAnswer(correctAnswer, newQuestion);
 
         currentSurvey.addCorrectAnswer(correctAnswer);
     }
