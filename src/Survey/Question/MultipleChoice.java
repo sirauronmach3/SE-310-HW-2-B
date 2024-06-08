@@ -73,4 +73,35 @@ public class MultipleChoice extends Question {
     public ArrayList<String> getChoices() {
         return this.choices;
     }
+
+    @Override
+    public boolean isEqual(Question otherQuestion) {
+        // basic question elements
+        if (!super.isEqual(otherQuestion)) {
+            return false;
+        }
+
+        // Multiple choice specifics
+        MultipleChoice otherMC = (MultipleChoice) otherQuestion;
+
+        // choices
+        if (this.choices.size() != otherMC.choices.size()) {
+            return false;
+        }
+
+        ArrayList<String> otherChoices = otherMC.choices;
+        for (int i = 0; i < this.choices.size(); i++) {
+            boolean found = false;
+            for (int j = 0; j < this.choices.size(); j++) {
+                if (this.choices.get(i).equalsIgnoreCase(otherChoices.get(j))) {
+                    found = true;
+                }
+            }
+            if (!found) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
