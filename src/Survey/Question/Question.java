@@ -113,14 +113,18 @@ public abstract class Question implements Serializable {
     /**
      * Display answer options
      */
-    public abstract void displayChoices();
+    public  void displayChoices(){
+        throw new UnsupportedOperationException("Invalid operation");
+    };
 
     /**
      * Gets an array of the answer choices
      *
      * @return ArrayList<String> representing the answer choices.
      */
-    public abstract ArrayList<String> getChoices();
+    public ArrayList<String> getChoices() {
+        throw new UnsupportedOperationException("Invalid operation");
+    }
 
     public int getNumberOfAnswers() {
         return answer.getNumberOfAnswers();
