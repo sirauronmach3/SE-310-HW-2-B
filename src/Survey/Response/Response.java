@@ -110,4 +110,8 @@ public abstract class Response implements Serializable {
     public boolean setAnswer(String string) {
         throw new UnsupportedOperationException("Invalid Operation");
     }
+
+    public ArrayList<String> getAnswers() {
+        throw new UnsupportedOperationException("Invalid Operation");
+    }
 }
