@@ -119,6 +119,7 @@ public class SurveyManager {
                 break;
             case TABULATE:
                 out.say("Selection: " + TABULATE.name);
+                tabulate(); // TODO tabulate
                 break;
             case RETURN:
                 out.say("Selection: " + RETURN.name);
@@ -128,6 +129,43 @@ public class SurveyManager {
                 break;
         }
         return true;
+    }
+
+    /**
+     * Searches through path and tabulates all responses to questions.
+     */
+    private void tabulate() {
+        // Setup
+        In in = In.getInstance();
+        Out out = Out.getInstance();
+        ArrayList<Survey> surveys = new ArrayList<>();
+        Survey survey;
+
+        if (currentSurvey.isTaken()) {
+            surveys.add(currentSurvey);
+        }
+
+        // get surveys from directory
+        // compare against stored survey, if they are (and they have been taken) add them to the list of Surveys
+        ArrayList<File> files = getListSavedSurveys(currentSurvey.getSurveyType());
+        for (File file: files) {
+            survey = loadFile(file);
+            if (currentSurvey.isEqual(survey) && survey.isTaken()) {
+                surveys.add(survey);
+            }
+        }
+
+        if (surveys.size() == 0) {
+            out.say("In the current directory, there are no versions of this " +
+                    currentSurvey.getSurveyType().name + " that have been taken ");
+            return;
+        }
+
+
+
+        // for each question, add responses to list of list of answers.
+
+        // List each prompt in survey, and output tabulation for that question
     }
 
     /**
