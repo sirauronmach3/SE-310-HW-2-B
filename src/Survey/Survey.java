@@ -47,6 +47,7 @@ public class Survey implements Serializable {
         Out out = Out.getInstance();
 
         // output header
+        out.say("");
         out.say("The " + this.surveyType.name);
         out.say("---------------------------");
 

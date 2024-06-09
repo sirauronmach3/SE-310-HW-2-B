@@ -1,12 +1,8 @@
 package Management;
 
-import Survey.Question.MultipleChoice;
 import Survey.Question.Question;
-import Survey.Question.ShortAnswer;
 import Survey.QuestionEditor;
-import Survey.Response.PairResponse;
-import Survey.Response.SelectionResponse;
-import Survey.Response.ShortAnswerResponse;
+import Survey.Response.*;
 import Survey.Survey;
 import utils.*;
 
@@ -126,7 +122,7 @@ public class SurveyManager {
                 break;
             case TABULATE:
                 out.say("Selection: " + TABULATE.name);
-                tabulate(); // TODO tabulate survey
+                tabulate();
                 break;
             case RETURN:
                 out.say("Selection: " + RETURN.name);
@@ -188,6 +184,9 @@ public class SurveyManager {
         }
 
         // List each prompt in survey, and output tabulation for that question
+        for (int i = 0; i < currentSurvey.getNumberOfQuestions(); i++) {
+            out.say("Question " + (i + 1) + ": \n" + currentSurvey.getQuestion(i).getPrompt() + "\n" + tabulation.get(i));
+        }
     }
 
     private String transformTabulationMapIntoString(Map<String, Integer> map, QuestionType type) {
@@ -197,17 +196,27 @@ public class SurveyManager {
             case TRUE_FALSE:
             case VALID_DATE:
             case MATCHING:
+            case SHORT_ANSWER:
                 string = transformSelection(map);
                 break;
             case ESSAY:
-                break;
-            case SHORT_ANSWER:
+                string = transformEssay(map);
                 break;
             default:
                 break;
         }
 
         return string;
+    }
+
+    private String transformEssay(Map<String, Integer> map) {
+        String result = "";
+
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            result += entry.getKey() + "\n";
+        }
+
+        return result;
     }
 
     private String transformSelection(Map<String, Integer> map) {
@@ -231,16 +240,30 @@ public class SurveyManager {
                 multipleChoiceTabulation(map, ((SelectionResponse) question.getAnswer()));
                 break;
             case ESSAY:
+                writtenAnswerTabulation(map, ((OpenEndedResponse) question.getAnswer()));
             case SHORT_ANSWER:
-                writtenAnswerTabulation(map, (ShortAnswerResponse) question.getAnswer());
+                writtenAnswerTabulation(map, (OpenEndedResponse) question.getAnswer());
                 break;
             case MATCHING:
                 matchingTabulation(map, ((PairResponse) question.getAnswer()));
                 break;
             case VALID_DATE:
+                dateTabulation(map, (DateResponse) question.getAnswer());
                 break;
             default:
                 break;
+        }
+    }
+
+    private void dateTabulation(Map<String, Integer> map, DateResponse answer) {
+        int[] response = answer.getAnswer();
+        String separator = "/";
+        String date = response[0] + separator + response[1] + separator + response[2];
+
+        if (map.containsKey(date)) {
+            map.put(date, map.get(date) + 1);
+        } else {
+            map.put(date, 1);
         }
     }
 
@@ -259,7 +282,7 @@ public class SurveyManager {
         }
     }
 
-    private void writtenAnswerTabulation(Map<String, Integer> map, ShortAnswerResponse answer) {
+    private void writtenAnswerTabulation(Map<String, Integer> map, OpenEndedResponse answer) {
         ArrayList<String> answers = answer.getAnswer();
 
         for (int i = 0; i < answers.size(); i++) {

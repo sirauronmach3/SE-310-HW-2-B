@@ -83,7 +83,7 @@ public class TestManager extends SurveyManager {
                 break;
             case TABULATE:
                 out.say("Selection: " + TestManagerMenuOptions.TABULATE.name);
-                tabulate(); // TODO tabulate test
+                tabulate();
                 break;
             case GRADE:
                 out.say("Selection: " + TestManagerMenuOptions.GRADE.name);

@@ -71,6 +71,7 @@ public class ShortAnswerResponse extends OpenEndedResponse {
         return false; /** If other Response is different type */
     }
 
+    @Override
     public ArrayList<String> getAnswer() {
         ArrayList<String> answer = new ArrayList<>();
         for (String thisString : this.answer) {

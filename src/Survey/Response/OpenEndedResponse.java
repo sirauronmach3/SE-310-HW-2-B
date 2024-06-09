@@ -48,6 +48,12 @@ public class OpenEndedResponse extends Response {
         );
     }
 
+    public ArrayList<String> getAnswer() {
+        ArrayList<String> result = new ArrayList<>(answer);
+
+        return result;
+    }
+
     @Override
     public boolean isEqual(Response other) {
         return other.getClass().equals(this.getClass());

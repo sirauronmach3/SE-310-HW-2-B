@@ -157,4 +157,8 @@ public abstract class Question implements Serializable {
                 (this.questionType == otherQuestion.questionType) &&
                 (this.answer.getNumberOfAnswers() == otherQuestion.answer.getNumberOfAnswers());
     }
+
+    public String getPrompt() {
+        return new String(prompt);
+    }
 }
