@@ -1,7 +1,9 @@
 package Management;
 
+import Survey.Question.MultipleChoice;
 import Survey.Question.Question;
 import Survey.QuestionEditor;
+import Survey.Response.SelectionResponse;
 import Survey.Survey;
 import utils.*;
 
@@ -185,8 +187,12 @@ public class SurveyManager {
     private void handleQuestionTabulation(Map<String, Integer> map, QuestionType type, int ordinal, Question question) {
         switch (type) {
             case MULTIPLE_CHOICE:
+                multipleChoiceTabulation(map, ((SelectionResponse) question.getAnswer()));
+                break;
             case TRUE_FALSE:
-                multipleChoiceTabulation(map, question);
+                map.put("true", 0);
+                map.put("false", 0);
+                multipleChoiceTabulation(map, ((SelectionResponse) question.getAnswer()));
                 break;
             case ESSAY:
                 break;
@@ -201,8 +207,18 @@ public class SurveyManager {
         }
     }
 
-    private void multipleChoiceTabulation(Map<String, Integer> map, Question question) {
+    private void multipleChoiceTabulation(Map<String, Integer> map, SelectionResponse answer) {
+        ArrayList<String> answers = answer.getAnswers();
 
+        for (int i = 0; i < answers.size(); i++) {
+            String thisAnswer = answers.get(i);
+
+            if (map.containsKey(thisAnswer)) {
+                map.put(thisAnswer, map.get(thisAnswer) + 1);
+            } else {
+                map.put(thisAnswer, 1);
+            }
+        }
     }
 
     /**
