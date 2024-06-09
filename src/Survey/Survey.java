@@ -184,10 +184,10 @@ public class Survey implements Serializable {
         if (this.surveyType != other.surveyType) { // if survey type different, false
             return false;
         }
-
-        if (!this.filename.equals(other.getFilename())) { // if named different, false
-            return false;
-        }
+//
+//        if (!this.filename.equals(other.getFilename())) { // if named different, false
+//            return false;
+//        }
 
         int size = this.questions.size();
         if (size != other.questions.size()) { // if there aren't the same number of questions, false
