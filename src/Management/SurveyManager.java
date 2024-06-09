@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import static utils.SurveyManagerMenuOptions.*;
 
@@ -119,7 +121,7 @@ public class SurveyManager {
                 break;
             case TABULATE:
                 out.say("Selection: " + TABULATE.name);
-                tabulate(); // TODO tabulate
+                tabulate(); // TODO tabulate survey
                 break;
             case RETURN:
                 out.say("Selection: " + RETURN.name);
@@ -161,11 +163,46 @@ public class SurveyManager {
             return;
         }
 
-
-
         // for each question, add responses to list of list of answers.
+        ArrayList<Map> tabulation = new ArrayList<>();
+        int size = currentSurvey.getNumberOfQuestions();
+        survey = null;
+        for (int ordinal = 0; ordinal < size; ordinal++) {
+            Map<String, Integer> map = new HashMap<>();
+            tabulation.add(ordinal, map);
+            QuestionType type = currentSurvey.getQuestion(ordinal).getQuestionType();
+
+            for (int surveyNumber = 0; surveyNumber < surveys.size(); surveyNumber++) {
+                survey = surveys.get(surveyNumber);
+                Question question = survey.getQuestion(ordinal);
+                handleQuestionTabulation(map, type, ordinal, question);
+            }
+        }
 
         // List each prompt in survey, and output tabulation for that question
+    }
+
+    private void handleQuestionTabulation(Map<String, Integer> map, QuestionType type, int ordinal, Question question) {
+        switch (type) {
+            case MULTIPLE_CHOICE:
+            case TRUE_FALSE:
+                multipleChoiceTabulation(map, question);
+                break;
+            case ESSAY:
+                break;
+            case SHORT_ANSWER:
+                break;
+            case MATCHING:
+                break;
+            case VALID_DATE:
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void multipleChoiceTabulation(Map<String, Integer> map, Question question) {
+
     }
 
     /**
