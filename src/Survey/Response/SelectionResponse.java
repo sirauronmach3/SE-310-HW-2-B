@@ -75,8 +75,8 @@ public class SelectionResponse extends Response {
     @Override
     public boolean isEqual(Response other) {
         if (this.getClass().equals(other.getClass())) {
-            ArrayList<String> thisAnswer = this.getAnswer();
-            ArrayList<String> otherAnswer = ((SelectionResponse) other).getAnswer();
+            ArrayList<String> thisAnswer = this.getAnswers();
+            ArrayList<String> otherAnswer = other.getAnswers();
 
             if (thisAnswer.size() != otherAnswer.size()) {
                 return false; /** If both responses do not have the same number of answers */
@@ -95,7 +95,8 @@ public class SelectionResponse extends Response {
         return false; /** If other Response is different type */
     }
 
-    public ArrayList<String> getAnswer() {
+    @Override
+    public ArrayList<String> getAnswers() {
         ArrayList<String> answer = new ArrayList<>();
         for (String thisString : this.answer) {
             answer.add(thisString.toLowerCase());
