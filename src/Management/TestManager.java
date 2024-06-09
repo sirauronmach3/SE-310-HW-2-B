@@ -79,11 +79,11 @@ public class TestManager extends SurveyManager {
                 break;
             case MODIFY:
                 out.say("Selection: " + TestManagerMenuOptions.MODIFY.name);
-                modifyTest(); // TODO modify
+                modifyTest(); // TODO test modify for all question types
                 break;
             case TABULATE:
                 out.say("Selection: " + TestManagerMenuOptions.TABULATE.name);
-//                tabulate(); // TODO tabulate test
+                tabulate(); // TODO tabulate test
                 break;
             case GRADE:
                 out.say("Selection: " + TestManagerMenuOptions.GRADE.name);
