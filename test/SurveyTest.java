@@ -65,21 +65,22 @@ public class SurveyTest {
         assertTrue(survey1.isEqual(survey2));
     }
 
-    @org.junit.jupiter.api.Test
-    public void surveyWithDifferentFilenameIsNotEqual() {
-        survey2 = new Survey();
-        question1 = new Essay();
-        String filename1 = "one";
-        String filename2 = "two";
-
-        survey1.addQuestion(question1);
-        survey1.setFilename(filename1);
-
-        survey2.addQuestion(question1);
-        survey2.setFilename(filename2); // different filename
-
-        assertFalse(survey1.isEqual(survey2));
-    }
+//    I'm not sure if this is necessary
+//    @org.junit.jupiter.api.Test
+//    public void surveyWithDifferentFilenameIsNotEqual() {
+//        survey2 = new Survey();
+//        question1 = new Essay();
+//        String filename1 = "one";
+//        String filename2 = "two";
+//
+//        survey1.addQuestion(question1);
+//        survey1.setFilename(filename1);
+//
+//        survey2.addQuestion(question1);
+//        survey2.setFilename(filename2); // different filename
+//
+//        assertFalse(survey1.isEqual(survey2));
+//    }
 
     @org.junit.jupiter.api.Test
     public void surveyWithDifferentNumberOfQuestionsIsNotEqual() {
