@@ -271,23 +271,25 @@ public class SurveyManager {
     private void handleLoadMenuSelection(int selection, ArrayList<File> files) {
         if (selection <= files.size()) {
             File fileToBeLoaded = files.get(selection - 1);
-            loadFile(fileToBeLoaded);
+            currentSurvey = loadFile(fileToBeLoaded);
             saved = true;
         }// else, selection was to leave menu
     }
 
-    private void loadFile(File fileToBeLoaded) {
+    private Survey loadFile(File fileToBeLoaded) {
+        Survey results = new Survey();
         try (ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(fileToBeLoaded))) {
             Survey loadedSurvey = (Survey) objectIn.readObject();
             System.out.println("Survey object has been deserialized and loaded.");
             // Do something with the loadedSurvey object
 
             // Assign the loadedSurvey to the currentSurvey variable
-            this.currentSurvey = loadedSurvey;
+            results = loadedSurvey;
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return results;
     }
 
     private void listSavedSurveys(ArrayList<File> files) {
@@ -313,7 +315,8 @@ public class SurveyManager {
         );
 
         // convert the array to an ArrayList
-        ArrayList<File> fileList = new ArrayList<>(Arrays.asList(filesArray));
+        ArrayList<File> fileList = null;
+        fileList = new ArrayList<>(Arrays.asList(filesArray));
 
         if (fileList == null) { // error check
             fileList = new ArrayList<>();
