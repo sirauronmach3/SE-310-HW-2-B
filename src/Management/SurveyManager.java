@@ -134,7 +134,7 @@ public class SurveyManager {
     /**
      * Searches through path and tabulates all responses to questions.
      */
-    private void tabulate() {
+    protected void tabulate() {
         // Setup
         In in = In.getInstance();
         Out out = Out.getInstance();
@@ -276,7 +276,7 @@ public class SurveyManager {
         }// else, selection was to leave menu
     }
 
-    private Survey loadFile(File fileToBeLoaded) {
+    protected Survey loadFile(File fileToBeLoaded) {
         Survey results = new Survey();
         try (ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(fileToBeLoaded))) {
             Survey loadedSurvey = (Survey) objectIn.readObject();
@@ -292,7 +292,7 @@ public class SurveyManager {
         return results;
     }
 
-    private void listSavedSurveys(ArrayList<File> files) {
+    protected void listSavedSurveys(ArrayList<File> files) {
         Out out = Out.getInstance();
 
         for (int i = 0; i < files.size(); i++) {
@@ -305,7 +305,7 @@ public class SurveyManager {
 
         // check if the path is a directory
         if (!directory.isDirectory()) {
-            System.err.println("Specified path is not a directory.");
+            Out.getInstance().say("Specified path is not a directory.");
             return new ArrayList<>();
         }
 
