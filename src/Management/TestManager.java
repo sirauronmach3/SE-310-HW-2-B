@@ -55,7 +55,7 @@ public class TestManager extends SurveyManager {
         switch (selection) {
             case CREATE_NEW:
                 out.say("Selection: " + TestManagerMenuOptions.CREATE_NEW.name);
-                createTest(); // TODO test with changes to correct answer creation
+                createTest();
                 break;
             case DISPLAY_WITH_KEY:
                 out.say("Selection: " + TestManagerMenuOptions.DISPLAY_WITH_KEY.name);
@@ -67,15 +67,15 @@ public class TestManager extends SurveyManager {
                 break;
             case LOAD:
                 out.say("Selection: " + TestManagerMenuOptions.LOAD.name);
-                loadSurvey(TypesOfSurvey.TEST); // TODO load, change hierarchy and stuff
+                loadSurvey(TypesOfSurvey.TEST);
                 break;
             case SAVE:
                 out.say("Selection: " + TestManagerMenuOptions.SAVE.name);
-                saveSurvey(TypesOfSurvey.TEST); // TODO test save, change hierarchy and stuff
+                saveSurvey(TypesOfSurvey.TEST);
                 break;
             case TAKE:
                 out.say("Selection: " + TestManagerMenuOptions.TAKE.name);
-                takeTest(); // TODO, add hierarchy stuff
+                takeTest();
                 break;
             case MODIFY:
                 out.say("Selection: " + TestManagerMenuOptions.MODIFY.name);
